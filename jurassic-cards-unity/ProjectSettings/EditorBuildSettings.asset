@@ -14,4 +14,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoginScene.unity
     guid: cea68be0580753a438cdc05c714a2c57
+  - enabled: 1
+    path: Assets/Scenes/TermsScene.unity
+    guid: e29d303bf454d3f43b1298b1605d03e8
+  - enabled: 1
+    path: Assets/Scenes/RegisterScene.unity
+    guid: 6ef9cbf983ea17c4a8c2725bc1782fa3
+  - enabled: 1
+    path: Assets/Scenes/CreateProfileScene.unity
+    guid: 5f07dd4548fbe834a85881f7565797c5
+  - enabled: 1
+    path: Assets/Scenes/RecoverPassword.unity
+    guid: 22c9a1bac61e7b34d9b17945b250f4b2
+  - enabled: 1
+    path: Assets/Scenes/RecoverLoginScene.unity
+    guid: 8935923ea5693b44f8609a97c3c949ef
   m_configObjects: {}
