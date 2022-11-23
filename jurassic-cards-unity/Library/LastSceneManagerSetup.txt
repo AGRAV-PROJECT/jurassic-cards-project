@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/RecoverPassword.unity
+- path: Assets/Scenes/TermsScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
