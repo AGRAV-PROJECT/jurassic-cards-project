@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RecoverLoginScene.unity
     guid: 8935923ea5693b44f8609a97c3c949ef
+  - enabled: 1
+    path: Assets/Scenes/HomepageScene.unity
+    guid: e7a9c5d5483f0c94fa227b4424b66513
   m_configObjects: {}
