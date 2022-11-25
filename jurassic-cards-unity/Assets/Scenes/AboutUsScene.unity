@@ -697,8 +697,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 140}
-  m_SizeDelta: {x: 800, y: 1220}
+  m_AnchoredPosition: {x: 0, y: 65.773}
+  m_SizeDelta: {x: 940, y: 1411.5454}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1793405033
 MonoBehaviour:
@@ -722,10 +722,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 4
     m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -733,14 +733,22 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-    when an unknown printer took a galley of type and scrambled it to make a type
-    specimen book. It has survived not only five centuries, but also the leap into
-    electronic typesetting, remaining essentially unchanged. It was popularised in
-    the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-    and more recently with desktop publishing software like Aldus PageMaker including
-    versions of Lorem Ipsum
+  m_Text: "Jurassic Cards was developed as part of the Advanced Graphical Applications
+    course (AGRAV), which began in the second semester of the second year of the
+    Master\u2019s in Computer Engineering in the branch of Graphic and Multimedia
+    Systems at the Instituto Superior de Engenharia do Porto (ISEP) - Academic Year
+    2022/2023.\r\n\r\nThe game was developed under the guidance of teacher Paula
+    Escudeiro by the following members of Group 01: Andr\xE9 Gon\xE7alves (1191660),
+    Andr\xE9 Morais (1210626), Daniel Dias (1181488), Francisco Dias (1180615), Lu\xEDs
+    Sousa (1170987), Miguel Cabeleira (1210632), Narciso Correia (1200174), Sofia
+    Canelas (1200185), and V\xEDtor Neto (1210130).\r\n\r\nThe purpose of the game
+    is to instruct players about dinosaurs while they play and have fun. Location
+    services are used on a representative map of the user\u2019s country, which allows
+    the user to discover it while interacting with other elements placed by other
+    players (fossils). The game also features AR capabilities to scan the physical
+    cards and to battle with other players. Adding to this, the game has the objective
+    of being inclusive, providing easier ways for deaf, disabled, colorblind, and
+    senior people to play the game.\r\n"
 --- !u!222 &1793405034
 CanvasRenderer:
   m_ObjectHideFlags: 0
