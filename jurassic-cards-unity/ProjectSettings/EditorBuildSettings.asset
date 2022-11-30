@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HomepageScene.unity
     guid: e7a9c5d5483f0c94fa227b4424b66513
+  - enabled: 1
+    path: Assets/Scenes/BattleScene.unity
+    guid: 35f2197f9e0dc6b4e9992b10d0645644
+  - enabled: 1
+    path: Assets/Scenes/ScanCardrScene.unity
+    guid: fad35e4ed83eeaa4197fbadeff1dd802
   m_configObjects: {}

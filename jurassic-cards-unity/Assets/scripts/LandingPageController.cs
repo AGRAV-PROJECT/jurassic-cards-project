@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class LandingPageController : MonoBehaviour
@@ -15,4 +16,11 @@ public class LandingPageController : MonoBehaviour
     {
         
     }
+
+    //Load new scene
+    public void LoadNewScene(int n)
+    {
+        SceneManager.LoadScene(n);
+    }
+
 }
