@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class LandingPageController : MonoBehaviour
+public class RegisterController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -23,15 +23,15 @@ public class LandingPageController : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    //Go to Register page
-    public void ChangeToRegisterPage()
+    //Go to Terms page
+    public void ChangeToTermsPage()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(3);
     }
 
-    //Go to About Us page
-    public void ChangeToAboutUsPage()
+    //Go to Create Profile page
+    public void ChangeToCreateProfilePage()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(5);
     }
 }
