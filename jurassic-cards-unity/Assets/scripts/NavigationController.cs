@@ -8,6 +8,7 @@ public class NavigationController : MonoBehaviour
     //Load new scene
     public void LoadNewScene(int n)
     {
+        print(n);
         SceneManager.LoadScene(n);
     }
 }
