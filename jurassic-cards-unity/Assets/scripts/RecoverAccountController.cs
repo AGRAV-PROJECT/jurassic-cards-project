@@ -5,21 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class RecoverAccountController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     //Go to Recover pass page
     public void ChangeToRecoverPassPage()
     {
         SceneManager.LoadScene(6);
+    }
+
+    //Go back to login page
+    public void BackToLoginPage()
+    {
+        SceneManager.LoadScene(2);
     }
 }

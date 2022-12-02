@@ -5,18 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LoginController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     //Go to Home page
     public void ChangeToHomePage()
     {
@@ -34,5 +22,11 @@ public class LoginController : MonoBehaviour
     public void ChangeToRecoverLoginPage()
     {
         SceneManager.LoadScene(7);
+    }
+
+    //Go back to landing page
+    public void BackToLandingPage()
+    {
+        SceneManager.LoadScene(0);
     }
 }

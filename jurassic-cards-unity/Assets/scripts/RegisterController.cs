@@ -34,4 +34,10 @@ public class RegisterController : MonoBehaviour
     {
         SceneManager.LoadScene(5);
     }
+
+    //Go back to landing page
+    public void BackToLandingPage()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

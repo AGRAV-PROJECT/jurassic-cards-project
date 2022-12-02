@@ -20,6 +20,6 @@ public class ScanCardController : MonoBehaviour
     //Go to Home page
     public void ChangeToHomePage()
     {
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(9);
     }
 }
