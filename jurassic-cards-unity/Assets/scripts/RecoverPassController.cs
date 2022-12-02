@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class LandingPageController : MonoBehaviour
+public class RecoverPassController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -21,17 +21,5 @@ public class LandingPageController : MonoBehaviour
     public void ChangeToLoginPage()
     {
         SceneManager.LoadScene(2);
-    }
-
-    //Go to Register page
-    public void ChangeToRegisterPage()
-    {
-        SceneManager.LoadScene(4);
-    }
-
-    //Go to About Us page
-    public void ChangeToAboutUsPage()
-    {
-        SceneManager.LoadScene(1);
     }
 }
