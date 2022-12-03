@@ -5,18 +5,6 @@ using UnityEngine;
 
 public class LandingPageController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     //Go to login page
     public void ChangeToLoginPage()
     {

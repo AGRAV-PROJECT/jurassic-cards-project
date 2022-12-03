@@ -5,19 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class CreateProfileController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // Save changes and go to home page
+    public void SaveChanges()
     {
-        
+        // Add necessary code for saving changes
+        ChangeToHomePage();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    //Go to Home page
+    //Go to home page (can be used to skip too)
     public void ChangeToHomePage()
     {
         SceneManager.LoadScene(8);

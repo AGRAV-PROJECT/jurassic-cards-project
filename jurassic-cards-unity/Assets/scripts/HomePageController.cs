@@ -7,6 +7,7 @@ public class HomePageController : MonoBehaviour
 {
     List<GameObject> menuNavigation = new List<GameObject>();
 
+    // Opens new menu, hiding the one before it
     public void OpenMenu(GameObject menu)
     {
         menu.SetActive(true);
@@ -19,6 +20,14 @@ public class HomePageController : MonoBehaviour
         menuNavigation.Add(menu);
     }
 
+    // Opens new menu without hiding the one before it. Good for overlays
+    public void OpenMenuWithoutHiding(GameObject menu)
+    {
+        menu.SetActive(true);
+        menuNavigation.Add(menu);
+    }
+
+    // Hides current menu and reveals previous one
     public void BackOneMenu()
     {
         if (menuNavigation.Count > 0)
@@ -33,6 +42,7 @@ public class HomePageController : MonoBehaviour
         }
     }
 
+    // Hides all menus
     public void CloseAllMenus()
     {
         foreach (GameObject menu in menuNavigation)
