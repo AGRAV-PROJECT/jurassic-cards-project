@@ -1058,7 +1058,7 @@ MonoBehaviour:
         m_MethodName: OpenMenu
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 887445346}
+          m_ObjectArgument: {fileID: 2120663159}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -14829,7 +14829,6 @@ RectTransform:
   m_Children:
   - {fileID: 741659147}
   - {fileID: 1856808998}
-  - {fileID: 2120663160}
   - {fileID: 1808632039}
   - {fileID: 1563355627}
   m_Father: {fileID: 575047959}
@@ -18925,6 +18924,7 @@ RectTransform:
   - {fileID: 1220791207}
   - {fileID: 504269844}
   - {fileID: 607870110}
+  - {fileID: 2120663160}
   m_Father: {fileID: 1522801248}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21425,13 +21425,13 @@ RectTransform:
   - {fileID: 756448517}
   - {fileID: 666394492}
   - {fileID: 1184716909}
-  m_Father: {fileID: 1522801248}
+  m_Father: {fileID: 1856808998}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 4181.247, y: 2240}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2120663161
 MonoBehaviour:
