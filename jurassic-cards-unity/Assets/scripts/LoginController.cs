@@ -1,10 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LoginController : MonoBehaviour
 {
+
+    public class User
+    {
+        public string email;
+        public string password;
+    }
+
+    public Text emailGameObject, passwordGameObject;
+
     //Go to Home page
     public void ChangeToHomePage()
     {

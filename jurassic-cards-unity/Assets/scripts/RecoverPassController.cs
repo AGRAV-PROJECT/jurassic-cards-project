@@ -2,10 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RecoverPassController : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public class User
+    {
+        public string password;
+    }
+
+    public Text newPasswordGameObject, confirmNewPasswordGameObject;
+
     void Start()
     {
         

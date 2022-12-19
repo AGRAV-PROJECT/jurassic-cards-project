@@ -492,6 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f767c83e8297dd49b71055c7eae5436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emailGameObject: {fileID: 1797067889}
 --- !u!1 &869693025
 GameObject:
   m_ObjectHideFlags: 0

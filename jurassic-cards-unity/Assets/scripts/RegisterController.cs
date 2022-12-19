@@ -8,6 +8,7 @@ using UnityEngine.Networking;
 //using System.Data.SqlClient;
 
 using Newtonsoft.Json;
+using UnityEngine.UI;
 
 public class RegisterController : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class RegisterController : MonoBehaviour
         public string password;
         public string email;
     }
+
+    public Text nameGameObject, passwordGameObject, emailGameObject;
 
     // Start is called before the first frame update
     void Start()
@@ -54,9 +57,9 @@ public class RegisterController : MonoBehaviour
     IEnumerator UploadRegister()
     {
         var user = new User();
-        user.name = "vitor9";
-        user.email = "vitordiogo9@sapo.pt";
-        user.password = "Testing123!";
+        user.name = nameGameObject.text;
+        user.email = emailGameObject.text;
+        user.password = passwordGameObject.text;
 
         string json = JsonUtility.ToJson(user);
 
