@@ -20,6 +20,21 @@ public class HomePageController : MonoBehaviour
         menuNavigation.Add(menu);
     }
 
+    // Logout
+    public void Logout()
+    {
+        if(PlayerPrefs.GetInt("Current_Logged_UserID", 0) == 0)
+        {
+            Debug.Log("No logged in user");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Current_Logged_UserID", 0);
+            Debug.Log("User Logged out");
+            SceneManager.LoadScene(0);
+        }
+    }
+
     // Opens new menu without hiding the one before it. Good for overlays
     public void OpenMenuWithoutHiding(GameObject menu)
     {
