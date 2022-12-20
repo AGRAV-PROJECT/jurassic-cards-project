@@ -29,10 +29,51 @@ public class LoginController : MonoBehaviour
 
     public Text emailGameObject, passwordGameObject;
 
-    // Login logic
-    public void Login()
+    public void LoginFunction()
     {
-        
+        StartCoroutine(Login());
+    }
+
+    // Login logic
+    IEnumerator Login()
+    {
+        // Login
+        string uri = "http://127.0.0.1:5000/account/login";
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
+        {
+            // Request and wait for the desired page.
+            yield return webRequest.SendWebRequest();
+            
+            // Get the current username that is being sent on the URI
+            string[] pages = uri.Split('/');
+            int page = pages.Length - 1;
+            
+            // Check request result
+            switch (webRequest.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                    Debug.Log("ERROR");
+                    webRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.DataProcessingError:
+                    Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                    webRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.ProtocolError:
+                    Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                    webRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.Success:
+                    //Debug.Log("Username" + pages[page] + ":\UID: " + webRequest.downloadHandler.text);
+                    
+                    // Save UID as "session cookie"
+                    PlayerPrefs.SetInt("Current_Logged_UserID", int.Parse(webRequest.downloadHandler.text));
+                    Debug.Log(PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString());
+                    webRequest.Dispose();
+                    SceneManager.LoadScene(5);
+                    break;
+            }
+        }
     }
     
     //Go to Home page
