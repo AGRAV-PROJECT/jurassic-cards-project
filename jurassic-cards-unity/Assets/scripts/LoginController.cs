@@ -8,10 +8,11 @@ using UnityEngine.UI;
 public class LoginController : MonoBehaviour
 {
 
+    // User
     public class User
     {
-        public string email;
         public string password;
+        public string email;
     }
 
     // Check if there is a signed in user. If so, he should be redirected to the home page
@@ -37,10 +38,27 @@ public class LoginController : MonoBehaviour
     // Login logic
     IEnumerator Login()
     {
+        // Get text input fields
+        string email    = emailGameObject.text.ToString();
+        string password = passwordGameObject.text.ToString();
+
+        // Create user class
+        var user      = new User();
+        user.email    = email;
+        user.password = password;
+
         // Login
         string uri = "http://127.0.0.1:5000/account/login";
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
+
+            // Create JSON from class
+            string json = JsonUtility.ToJson(user);
+            byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
+            webRequest.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
+            webRequest.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+            webRequest.SetRequestHeader("Content-Type", "application/json");
+            
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
             
