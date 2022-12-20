@@ -149,6 +149,7 @@ public class RegisterController : MonoBehaviour
                         break;
                     case UnityWebRequest.Result.Success:
                         //Debug.Log("Username" + pages[page] + ":\UID: " + webRequest.downloadHandler.text);
+                        
                         // Save UID as "session cookie"
                         PlayerPrefs.SetInt("Current_Logged_UserID", int.Parse(webRequest.downloadHandler.text));
                         isLoggedIn = true;
