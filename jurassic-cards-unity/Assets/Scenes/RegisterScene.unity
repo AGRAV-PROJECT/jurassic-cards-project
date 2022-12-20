@@ -581,8 +581,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 266507661}
   m_TextComponent: {fileID: 1171210009}
   m_Placeholder: {fileID: 1218987479}
-  m_ContentType: 7
-  m_InputType: 2
+  m_ContentType: 0
+  m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -1048,8 +1048,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 751226154}
   m_TextComponent: {fileID: 1915894689}
   m_Placeholder: {fileID: 462929747}
-  m_ContentType: 7
-  m_InputType: 2
+  m_ContentType: 0
+  m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -2488,9 +2488,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9df28fc97140e4d822af4b33b27c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameGameObject: {fileID: 215859420}
-  passwordGameObject: {fileID: 1915894689}
-  emailGameObject: {fileID: 1087596242}
+  usernameTextField: {fileID: 215859420}
+  emailTextField: {fileID: 1087596242}
+  passwordTextField: {fileID: 1915894689}
+  confirmPasswordTextField: {fileID: 1171210009}
 --- !u!1 &1800348968
 GameObject:
   m_ObjectHideFlags: 0

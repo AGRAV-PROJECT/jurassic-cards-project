@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 using UnityEngine.Networking;
-//using System.Data.Sql;
-//using System.Data.SqlClient;
-
 using Newtonsoft.Json;
 using UnityEngine.UI;
 
+
 public class RegisterController : MonoBehaviour
 {
+    // Text fields
+    public Text usernameTextField;
+    public Text emailTextField;
+    public Text passwordTextField;
+    public Text confirmPasswordTextField;
+
+    // Check if user is loggedin or not
+    bool isLoggedIn = false;
+
     // User
     public class User
     {
@@ -20,12 +26,28 @@ public class RegisterController : MonoBehaviour
         public string email;
     }
 
-    public Text nameGameObject, passwordGameObject, emailGameObject;
+    public class Player: User
+    {
+        public int userID;
+        public int battlesFought;
+        public int battlesWon;
+        public int playerRank;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        string currentUser = PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString();
+        Debug.Log(currentUser);
+        if(currentUser == 0.ToString())
+        {
+            Debug.Log("No user is currenlty logged in");
+        }
+        else
+        {
+            Debug.Log("User with UID " + currentUser.ToString() + " is currently logged in");
+            isLoggedIn = true;
+        }
     }
 
     // Update is called once per frame
@@ -49,55 +71,95 @@ public class RegisterController : MonoBehaviour
     //Go to Create Profile page
     public void ChangeToCreateProfilePage()
     {
-        //SceneManager.LoadScene(5);
         //LoadConfig();
-        StartCoroutine(UploadRegister());
+        StartCoroutine(CreateUser());
     }
 
-    IEnumerator UploadRegister()
+    IEnumerator CreateUser()
     {
-        var user = new User();
-        user.name = nameGameObject.text;
-        user.email = emailGameObject.text;
-        user.password = passwordGameObject.text;
+        // Get text input fields
+        string userName        = usernameTextField.text.ToString();
+        string email           = emailTextField.text.ToString();
+        string password        = passwordTextField.text.ToString();
+        string confirmPassword = confirmPasswordTextField.text.ToString();
 
-        string json = JsonUtility.ToJson(user);
+        // Create user class
+        var user      = new User();
+        user.name     = userName;
+        user.email    = email;
+        user.password = password;
 
-        var req = new UnityWebRequest("http://127.0.0.1:5000/account/signup", "POST");
-        byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
-        req.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
-        req.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
-        req.SetRequestHeader("Content-Type", "application/json");
-        yield return req.SendWebRequest();
-        if (req.result != UnityWebRequest.Result.Success)
+        // Check if passwords match
+        if (password != confirmPassword)
         {
-            Debug.Log(req.error);
-            req.Dispose();
+            Debug.Log("Passwords do not match");
         }
         else
         {
-            Debug.Log("Form upload complete!");
-            req.Dispose();
+            // Create JSON from class
+            string json = JsonUtility.ToJson(user);
+
+            // Create web request
+            var request = new UnityWebRequest("http://127.0.0.1:5000/account/signup", "POST"); // TODO: Deploy API and change request URI accordingly
+
+            // Encode JSON to send in the request and change content type on request header accordingly
+            byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
+            request.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
+            request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            // Make the request and check for its success
+            yield return request.SendWebRequest();
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(request.error);
+                request.Dispose();
+            }
+            else
+            {
+                Debug.Log("User registered successfully!");
+                request.Dispose();
+            }
+
+            // Get userID
+            string uri = "http://127.0.0.1:5000/account/getCurrentUserID/" + userName;
+            using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
+            {
+                // Request and wait for the desired page.
+                yield return webRequest.SendWebRequest();
+                
+                // Get the current username that is being sent on the URI
+                string[] pages = uri.Split('/');
+                int page = pages.Length - 1;
+                
+                // Check request result
+                switch (webRequest.result)
+                {
+                    case UnityWebRequest.Result.ConnectionError:
+                        Debug.Log("ERROR");
+                        webRequest.Dispose();
+                        break;
+                    case UnityWebRequest.Result.DataProcessingError:
+                        Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                        webRequest.Dispose();
+                        break;
+                    case UnityWebRequest.Result.ProtocolError:
+                        Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                        webRequest.Dispose();
+                        break;
+                    case UnityWebRequest.Result.Success:
+                        //Debug.Log("Username" + pages[page] + ":\UID: " + webRequest.downloadHandler.text);
+                        // Save UID as "session cookie"
+                        PlayerPrefs.SetInt("Current_Logged_UserID", int.Parse(webRequest.downloadHandler.text));
+                        isLoggedIn = true;
+                        Debug.Log(PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString());
+                        webRequest.Dispose();
+                        SceneManager.LoadScene(5);
+                        break;
+                }
+            }
         }
         
-        //WWWForm form = new WWWForm();
-        //form.AddField("name", "vitor3");
-        //form.AddField("email", "vitordiogo20002@sapo.pt");
-        //form.AddField("password", "Testing123!");
-        //using (UnityWebRequest www = UnityWebRequest.Post("http://127.0.0.1:5000/account/signup", form))
-        //{
-        //    www.SetRequestHeader("Content-Type", "application/json");
-        //    yield return www.SendWebRequest();
-        //
-        //    if (www.result != UnityWebRequest.Result.Success)
-        //    {
-        //        Debug.Log(www.error);
-        //    }
-        //    else
-        //    {
-        //        Debug.Log("Form upload complete!");
-        //    }
-        //}
     }
 
     //Go back to landing page
