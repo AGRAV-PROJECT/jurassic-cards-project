@@ -14,8 +14,27 @@ public class LoginController : MonoBehaviour
         public string password;
     }
 
+    // Check if there is a signed in user. If so, he should be redirected to the home page
+    void Start()
+    {
+        if(PlayerPrefs.GetInt("Current_Logged_UserID", 0) == 0)
+        {
+            Debug.Log("No logged in user");
+        }
+        else
+        {
+            SceneManager.LoadScene(8);
+        }
+    }
+
     public Text emailGameObject, passwordGameObject;
 
+    // Login logic
+    public void Login()
+    {
+        
+    }
+    
     //Go to Home page
     public void ChangeToHomePage()
     {
