@@ -58,7 +58,7 @@ public class LoginController : MonoBehaviour
             webRequest.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
             webRequest.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
             webRequest.SetRequestHeader("Content-Type", "application/json");
-            
+
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
             
@@ -85,10 +85,11 @@ public class LoginController : MonoBehaviour
                     //Debug.Log("Username" + pages[page] + ":\UID: " + webRequest.downloadHandler.text);
                     
                     // Save UID as "session cookie"
+                    Debug.Log(int.Parse(webRequest.downloadHandler.text).ToString());
                     PlayerPrefs.SetInt("Current_Logged_UserID", int.Parse(webRequest.downloadHandler.text));
                     Debug.Log(PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString());
                     webRequest.Dispose();
-                    SceneManager.LoadScene(5);
+                    SceneManager.LoadScene(8);
                     break;
             }
         }
