@@ -9,12 +9,20 @@ public class CreateProfileController : MonoBehaviour
     // Current user id
     string currentUserName = "";
 
+    void Start()
+    {
+        StartCoroutine(GetCurrentUserName());
+    }
+
     // Save changes and go to home page
     public void SaveChanges()
     {
-        // Add necessary code for saving changes
-        //ChangeToHomePage();
-        StartCoroutine(GetCurrentUserName());
+        // Add necessary code for selecting and saving avatar
+        ChangeToHomePage();
+    }
+    public void SkipForNow()
+    {
+        ChangeToHomePage();
     }
 
     //Go to home page (can be used to skip too)
@@ -47,19 +55,27 @@ public class CreateProfileController : MonoBehaviour
             {
                 case UnityWebRequest.Result.ConnectionError:
                     Debug.Log("ERROR");
+                    currentUserName = "";
                     webRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.DataProcessingError:
                     Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                    currentUserName = "";
                     webRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.ProtocolError:
                     Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                    currentUserName = "";
                     webRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
                     currentUserName = webRequest.downloadHandler.text;
                     Debug.Log(currentUserName);
+                    webRequest.Dispose();
+                    break;
+                default:
+                    Debug.Log("Other error (user may not exist)");
+                    currentUserName = "";
                     webRequest.Dispose();
                     break;
             }
