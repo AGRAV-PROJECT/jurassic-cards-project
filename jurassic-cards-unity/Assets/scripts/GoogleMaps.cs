@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GoogleMaps : MonoBehaviour
 {
     public RawImage img;
+    public Text errortext;
     private string url;
 
     public double lon = 41.18089601323396;
@@ -24,8 +25,7 @@ public class GoogleMaps : MonoBehaviour
     {
         //img = gameObject.GetComponent<RawImage>();
         timerIsRunning = true;
-
-        StartCoroutine(Map());
+        StartCoroutine(GPSUserLocation());
     }
 
     // Update is called once per frame
@@ -71,5 +71,77 @@ public class GoogleMaps : MonoBehaviour
         yield return www;
         img.texture = www.texture;
         img.SetNativeSize();
+    }
+
+    IEnumerator GPSUserLocation()
+    {
+        if(!Input.location.isEnabledByUser)
+        {
+            Debug.Log("location is not Enabled By User");
+            errortext.text = "location is not Enabled By User";
+
+            //start map with default coordinates
+            Debug.Log("start map with default coordinates");
+            StartCoroutine(Map());
+            yield break;
+        }
+
+        //start service
+        Input.location.Start();
+        errortext.text = "loading map...please wait";
+        //wait until service initialize
+        int maxWait = 20;
+        while(Input.location.status == LocationServiceStatus.Initializing && maxWait > 0)
+        {
+            yield return new WaitForSeconds(1);
+            maxWait--;
+        }
+
+        //service didnt init at 20s
+        if(maxWait < 1)
+        {
+            Debug.Log("erro maxWaint < 1");
+            errortext.text = "erro maxWaint < 1";
+            yield break;
+        }
+
+        //conection failed
+        if(Input.location.status == LocationServiceStatus.Failed)
+        {
+            Debug.Log("unnable to determine device location");
+            errortext.text = "unnable to determine device location";
+
+            //start map with default coordinates
+            Debug.Log("start map with default coordinates");
+            StartCoroutine(Map());
+            yield break;
+        }
+        else
+        {
+            Debug.Log("running");
+            InvokeRepeating("UpdateGPSData", 0.5f, 1f);
+            //access granted
+        }
+    }
+
+    private void UpdateGPSData()
+    {
+        if(Input.location.status == LocationServiceStatus.Running)
+        {
+            Debug.Log("running");
+            lon = Input.location.lastData.longitude;
+            lat = Input.location.lastData.latitude;
+
+            errortext.text = "lon: " + lon + ", lat: " + lat;
+
+            //start map with the user coordinates
+            Debug.Log("start map with user coordinates");
+            StartCoroutine(Map());
+        }
+
+        else
+        {
+            Debug.Log("stopped");
+        }
     }
 }
