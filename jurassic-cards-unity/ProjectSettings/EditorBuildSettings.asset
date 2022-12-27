@@ -38,4 +38,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ScanCardrScene.unity
     guid: fad35e4ed83eeaa4197fbadeff1dd802
-  m_configObjects: {}
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6511be772fbfb444f899e674417b40d4, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 58b04225b5a2e7142a5c23fe087fffef, type: 2}
