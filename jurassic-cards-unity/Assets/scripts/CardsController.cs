@@ -68,23 +68,10 @@ public class CardsController : MonoBehaviour
         //Get UserID
         int userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
 
-        // Create user class
-        /*  var card = new Card();
-         card.cardID = cardID;
-         card.image = image; */
-
         // Call Get Cards Endpoint
         string uri = "http://127.0.0.1:5000/cards/collection/" + userID;
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
-
-            // Create JSON from class
-            /* string json = JsonUtility.ToJson(user);
-            byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
-            webRequest.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
-            webRequest.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
-            webRequest.SetRequestHeader("Content-Type", "application/json");
- */
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
 
@@ -116,13 +103,13 @@ public class CardsController : MonoBehaviour
     }
 
     // Call Scan Card IEnumerator
-    public void ScanCard()
+    public void ScanCard(string json)
     {
-        StartCoroutine(ScanCardCoroutine());
+        StartCoroutine(ScanCardCoroutine(json));
     }
 
     // Scan Card
-    IEnumerator ScanCardCoroutine()
+    IEnumerator ScanCardCoroutine(string json)
     {
 
 
@@ -144,13 +131,15 @@ public class CardsController : MonoBehaviour
         card.ownDate = ownDate;
         card.image = image;
  */
+
+
         // Call Scan Card Endpoint
         string uri = "http://127.0.0.1:5000/cards/scan/" + userID;
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
 
             // Create JSON from class
-            string json = JsonUtility.ToJson(card);
+            //string json = JsonUtility.ToJson(card);
             byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
             webRequest.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
             webRequest.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
@@ -252,7 +241,7 @@ public class CardsController : MonoBehaviour
         int cardID = 3; //carta que o user escolher para visualizar
 
 
-        // Call Get Cards Endpoint
+        // Call Get Cards info Endpoint
         string uri = "http://127.0.0.1:5000/cards/check/" + cardID;
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
@@ -305,7 +294,7 @@ public class CardsController : MonoBehaviour
     }
 
 
-    // Call Get Cards Info IEnumerator
+    // Call Get Fav Cards IEnumerator
     public void GetPlayerFavCard()
     {
         StartCoroutine(GetPlayerFavCardCoroutine());

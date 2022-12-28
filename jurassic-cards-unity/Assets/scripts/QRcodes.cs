@@ -10,6 +10,8 @@ public class QRcodes : MonoBehaviour
     public Text text;
     private int cardIdQRcode = -1;
 
+    CardsController cardController = new CardsController();
+
     // Check if user is loggedin or not
     bool isLoggedIn = false;
 
@@ -66,7 +68,7 @@ public class QRcodes : MonoBehaviour
             //StartCoroutine(UploadJsonQrCode13());
         }
         //if qr code 14 is found
-        if (text.text == "card14") 
+        if (text.text == "card14")
         {
             cardIdQRcode = 14;
             CreateJSONforCard14();
@@ -92,6 +94,14 @@ public class QRcodes : MonoBehaviour
             Debug.Log("qr code not found");
         }
     }
+    public void CallScanMethod(QRcode qrcode)
+    {
+
+        string json_qrcode = JsonUtility.ToJson(qrcode);
+
+        //Call scan method in Card Controller
+        cardController.ScanCard(json_qrcode);
+    }
 
     public void CreateJSONforCard13()
     {
@@ -111,6 +121,8 @@ public class QRcodes : MonoBehaviour
         qrcode.ownedSince = "replaceWithCurrentDate";
         qrcode.image = "replaceWithPlesiossaurosImageFromUnityAssets";
         qrcode.hasBeenRedeemed = false;
+
+        CallScanMethod(qrcode);
     }
 
     public void CreateJSONforCard14()
@@ -131,6 +143,8 @@ public class QRcodes : MonoBehaviour
         qrcode.ownedSince = "replaceWithCurrentDate";
         qrcode.image = "replaceWithPlesiossaurosImageFromUnityAssets";
         qrcode.hasBeenRedeemed = false;
+
+        CallScanMethod(qrcode);
     }
 
     public void CreateJSONforCard15()
@@ -151,6 +165,8 @@ public class QRcodes : MonoBehaviour
         qrcode.ownedSince = "replaceWithCurrentDate";
         qrcode.image = "replaceWithPlesiossaurosImageFromUnityAssets";
         qrcode.hasBeenRedeemed = false;
+
+        CallScanMethod(qrcode);
     }
 
     public void CreateJSONforCard16()
@@ -171,5 +187,7 @@ public class QRcodes : MonoBehaviour
         qrcode.ownedSince = "replaceWithCurrentDate";
         qrcode.image = "replaceWithPlesiossaurosImageFromUnityAssets";
         qrcode.hasBeenRedeemed = false;
+
+        CallScanMethod(qrcode);
     }
 }
