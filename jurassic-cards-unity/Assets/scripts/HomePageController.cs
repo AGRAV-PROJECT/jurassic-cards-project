@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HomePageController : MonoBehaviour
 {
     List<GameObject> menuNavigation = new List<GameObject>();
+    public InputField deleteAccountPasswordTextField;
 
     // Opens new menu, hiding the one before it
     public void OpenMenu(GameObject menu)
@@ -32,6 +35,64 @@ public class HomePageController : MonoBehaviour
             PlayerPrefs.SetInt("Current_Logged_UserID", 0);
             Debug.Log("User Logged out");
             SceneManager.LoadScene(0);
+        }
+    }
+
+    //Go to Create Profile page
+    public void DeleteAccount()
+    {
+        //LoadConfig();
+        StartCoroutine(DeleteAccountCoroutine());
+    }
+
+    // User
+    public class User
+    {
+        public string userid;
+        public string password;
+    }
+
+    IEnumerator DeleteAccountCoroutine()
+    {
+        if (PlayerPrefs.GetInt("Current_Logged_UserID", 0) == 0)
+        {
+            Debug.Log("No logged in user");
+        }
+        else
+        {
+        // Get text input fields
+        string password = deleteAccountPasswordTextField.text.ToString();
+
+        // Create user class
+        var user = new User();
+        user.userid = PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString();
+        user.password = password;
+
+            // Create JSON from class
+            string json = JsonUtility.ToJson(user);
+
+            // Create web request
+            var request = new UnityWebRequest("http://127.0.0.1:5000/account/delete", "DELETE"); // TODO: Deploy API and change request URI accordingly
+
+            // Encode JSON to send in the request and change content type on request header accordingly
+            byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
+            request.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
+            request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            // Make the request and check for its success
+            yield return request.SendWebRequest();
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(request.error);
+                request.Dispose();
+            }
+            else
+            {
+                Debug.Log("User deleted successfully!");
+                request.Dispose();
+                Logout();
+            }
         }
     }
 
