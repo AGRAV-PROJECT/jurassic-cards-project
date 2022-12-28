@@ -9,6 +9,19 @@ public class HomePageController : MonoBehaviour
 {
     List<GameObject> menuNavigation = new List<GameObject>();
     public InputField deleteAccountPasswordTextField;
+    public GameObject scanCardMenu;
+
+    public void OpenScanCardMenu()
+    {
+        gameObject.SetActive(false);
+        scanCardMenu.SetActive(true);
+    }
+
+    public void CloseScanCardMenu()
+    {
+        scanCardMenu.SetActive(false);
+        gameObject.SetActive(true);
+    }
 
     // Opens new menu, hiding the one before it
     public void OpenMenu(GameObject menu)
