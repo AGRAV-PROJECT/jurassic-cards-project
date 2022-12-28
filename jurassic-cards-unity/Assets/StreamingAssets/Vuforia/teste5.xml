@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="triceratops-cardid16" size="0.100000 0.098529" />
+    <ImageTarget name="trex-cardid15" size="0.100000 0.097509" />
+    <ImageTarget name="spinosauros-cardid14" size="0.100000 0.103409" />
+    <ImageTarget name="plessiosauro-cardid13" size="0.100000 0.102612" />
+  </Tracking>
+</QCARConfig>
