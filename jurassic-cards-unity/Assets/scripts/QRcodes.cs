@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using System;
 
 public class QRcodes : MonoBehaviour
 {
@@ -10,15 +11,18 @@ public class QRcodes : MonoBehaviour
     public Text text;
     private int cardIdQRcode = -1;
 
-    CardsController cardController = new CardsController();
-
     // Check if user is loggedin or not
     bool isLoggedIn = false;
+
+    //Check if a card was scanned
+    bool wasScanned = false;
+
+    //CardsController cardsController = (new GameObject("SomeObjName")).AddComponent<CardsController>();
 
     public class QRcode
     {
         public int cardID;
-        public string playerID;
+        public int userID;
         public string name;
         public string description;
         public int combatPoints;
@@ -29,18 +33,21 @@ public class QRcodes : MonoBehaviour
         public string ability1;
         public string ability2;
         public string ability3;
-        public string ownedSince;
+        public DateTime ownedSince;
         public string image;
         public bool hasBeenRedeemed;
     }
 
+
+
     void Start()
     {
+
         string currentUser = PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString();
         Debug.Log(currentUser);
         if (currentUser == 0.ToString())
         {
-            Debug.Log("No user is currenlty logged in");
+            Debug.Log("No user is currently logged in");
         }
         else
         {
@@ -52,9 +59,11 @@ public class QRcodes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Found();
+        if (!wasScanned)
+        {
+            Found();
+        }
     }
-
 
     //if some qr code is found
     public void Found()
@@ -62,14 +71,17 @@ public class QRcodes : MonoBehaviour
         //if qr code 13 is found
         if (text.text == "card13")
         {
+            wasScanned = true;
             Debug.Log("found qr code 13");
             cardIdQRcode = 13;
             CreateJSONforCard13();
             //StartCoroutine(UploadJsonQrCode13());
         }
+
         //if qr code 14 is found
         if (text.text == "card14")
         {
+            wasScanned = true;
             cardIdQRcode = 14;
             CreateJSONforCard14();
             Debug.Log("found qr code 14");
@@ -77,6 +89,7 @@ public class QRcodes : MonoBehaviour
 
         if (text.text == "card15")
         {
+            wasScanned = true;
             cardIdQRcode = 15;
             CreateJSONforCard15();
             Debug.Log("found qr code 15");
@@ -84,6 +97,7 @@ public class QRcodes : MonoBehaviour
 
         if (text.text == "card16")
         {
+            wasScanned = true;
             cardIdQRcode = 16;
             CreateJSONforCard16();
             Debug.Log("found qr code 16");
@@ -98,16 +112,18 @@ public class QRcodes : MonoBehaviour
     {
 
         string json_qrcode = JsonUtility.ToJson(qrcode);
+        //        Debug.Log("JSON QR CODE: \n" + json_qrcode);
+        Debug.Log("Call scan method");
+        //Call scan method in Card Controller 
 
-        //Call scan method in Card Controller
-        cardController.ScanCard(json_qrcode);
+        // cardController.ScanCard(json_qrcode);       ****************************************************************
     }
 
     public void CreateJSONforCard13()
     {
         var qrcode = new QRcode();
         qrcode.cardID = 13;
-        qrcode.playerID = "replaceWithCurrentPlayerID";
+        qrcode.userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
         qrcode.name = "Plesiossauros";
         qrcode.description = "PlesiossaurosDescription";
         qrcode.combatPoints = 10;
@@ -118,7 +134,7 @@ public class QRcodes : MonoBehaviour
         qrcode.ability1 = "Splash";
         qrcode.ability2 = "Bite";
         qrcode.ability3 = "Tsunami";
-        qrcode.ownedSince = "replaceWithCurrentDate";
+        qrcode.ownedSince = DateTime.Today;
         qrcode.image = "replaceWithPlesiossaurosImageFromUnityAssets";
         qrcode.hasBeenRedeemed = false;
 
@@ -129,7 +145,7 @@ public class QRcodes : MonoBehaviour
     {
         var qrcode = new QRcode();
         qrcode.cardID = 14;
-        qrcode.playerID = "replaceWithCurrentPlayerID";
+        qrcode.userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
         qrcode.name = "Spinosauros";
         qrcode.description = "SpinosaurosDescription";
         qrcode.combatPoints = 13;
@@ -140,7 +156,7 @@ public class QRcodes : MonoBehaviour
         qrcode.ability1 = "Splash";
         qrcode.ability2 = "Scratch";
         qrcode.ability3 = "Fear";
-        qrcode.ownedSince = "replaceWithCurrentDate";
+        qrcode.ownedSince = DateTime.Today;
         qrcode.image = "replaceWithPlesiossaurosImageFromUnityAssets";
         qrcode.hasBeenRedeemed = false;
 
@@ -151,7 +167,7 @@ public class QRcodes : MonoBehaviour
     {
         var qrcode = new QRcode();
         qrcode.cardID = 15;
-        qrcode.playerID = "replaceWithCurrentPlayerID";
+        qrcode.userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
         qrcode.name = "T-Rex";
         qrcode.description = "TRexDescription";
         qrcode.combatPoints = 15;
@@ -162,7 +178,7 @@ public class QRcodes : MonoBehaviour
         qrcode.ability1 = "Ferocious Bite";
         qrcode.ability2 = "Stomp";
         qrcode.ability3 = "Fear";
-        qrcode.ownedSince = "replaceWithCurrentDate";
+        qrcode.ownedSince = DateTime.Today;
         qrcode.image = "replaceWithPlesiossaurosImageFromUnityAssets";
         qrcode.hasBeenRedeemed = false;
 
@@ -173,7 +189,7 @@ public class QRcodes : MonoBehaviour
     {
         var qrcode = new QRcode();
         qrcode.cardID = 16;
-        qrcode.playerID = "replaceWithCurrentPlayerID";
+        qrcode.userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
         qrcode.name = "Triceratops";
         qrcode.description = "TriceratopsDescription";
         qrcode.combatPoints = 9;
@@ -184,7 +200,7 @@ public class QRcodes : MonoBehaviour
         qrcode.ability1 = "Shield Bash";
         qrcode.ability2 = "Protection";
         qrcode.ability3 = "Charge";
-        qrcode.ownedSince = "replaceWithCurrentDate";
+        qrcode.ownedSince = DateTime.Today;
         qrcode.image = "replaceWithPlesiossaurosImageFromUnityAssets";
         qrcode.hasBeenRedeemed = false;
 

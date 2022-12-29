@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
-using Newtonsoft.Json;
 using UnityEngine.UI;
 
 
@@ -26,7 +25,7 @@ public class RegisterController : MonoBehaviour
         public string email;
     }
 
-    public class Player: User
+    public class Player : User
     {
         public int userID;
         public int battlesFought;
@@ -39,7 +38,7 @@ public class RegisterController : MonoBehaviour
     {
         string currentUser = PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString();
         Debug.Log(currentUser);
-        if(currentUser == 0.ToString())
+        if (currentUser == 0.ToString())
         {
             Debug.Log("No user is currenlty logged in");
         }
@@ -53,7 +52,7 @@ public class RegisterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //Go to login page
@@ -78,15 +77,15 @@ public class RegisterController : MonoBehaviour
     IEnumerator CreateUser()
     {
         // Get text input fields
-        string userName        = usernameTextField.text.ToString();
-        string email           = emailTextField.text.ToString();
-        string password        = passwordTextField.text.ToString();
+        string userName = usernameTextField.text.ToString();
+        string email = emailTextField.text.ToString();
+        string password = passwordTextField.text.ToString();
         string confirmPassword = confirmPasswordTextField.text.ToString();
 
         // Create user class
-        var user      = new User();
-        user.name     = userName;
-        user.email    = email;
+        var user = new User();
+        user.name = userName;
+        user.email = email;
         user.password = password;
 
         // Check if passwords match
@@ -127,11 +126,11 @@ public class RegisterController : MonoBehaviour
             {
                 // Request and wait for the desired page.
                 yield return webRequest.SendWebRequest();
-                
+
                 // Get the current username that is being sent on the URI
                 string[] pages = uri.Split('/');
                 int page = pages.Length - 1;
-                
+
                 // Check request result
                 switch (webRequest.result)
                 {
@@ -149,7 +148,7 @@ public class RegisterController : MonoBehaviour
                         break;
                     case UnityWebRequest.Result.Success:
                         //Debug.Log("Username" + pages[page] + ":\UID: " + webRequest.downloadHandler.text);
-                        
+
                         // Save UID as "session cookie"
                         PlayerPrefs.SetInt("Current_Logged_UserID", int.Parse(webRequest.downloadHandler.text));
                         isLoggedIn = true;
@@ -160,7 +159,7 @@ public class RegisterController : MonoBehaviour
                 }
             }
         }
-        
+
     }
 
     //Go back to landing page
