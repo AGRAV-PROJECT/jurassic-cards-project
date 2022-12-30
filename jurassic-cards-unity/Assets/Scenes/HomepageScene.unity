@@ -11021,8 +11021,8 @@ MonoBehaviour:
   insertFosilPanel: {fileID: 1000289896}
   fossillong: {fileID: 633001882}
   fossillat: {fileID: 894652705}
-  lon: 41.18089601323396
-  lat: -8.605617846739788
+  lat: 41.18089601323396
+  lon: -8.605617846739788
   timeRemaining: 10
   timerIsRunning: 0
   zoom: 17
