@@ -10,7 +10,7 @@ public class GoogleMaps : MonoBehaviour
     public Text errortext;
     private string url;
     private bool isClickedInsertFossil = false;
-    public Button buttonPlantFossil, buttonPlantFossilSubmit;
+    public Button buttonPlantFossil, buttonPlantFossilSubmit, quitButton;
     public GameObject insertFosilPanel;
     public Text fossillong;
     public Text fossillat;
@@ -56,6 +56,7 @@ public class GoogleMaps : MonoBehaviour
         }
         buttonPlantFossilSubmit.onClick.AddListener(delegate { InsertFossilClick(); });
         buttonPlantFossil.onClick.AddListener(delegate { OpenPanelAddFossil(); });
+        quitButton.onClick.AddListener(delegate { ClosePanel(); });
 
     }
 
@@ -64,6 +65,11 @@ public class GoogleMaps : MonoBehaviour
         isClickedInsertFossil = true;
         buttonPlantFossil.gameObject.SetActive(true);
         Debug.Log("aqui");
+    }
+
+    public void ClosePanel()
+    {
+        insertFosilPanel.SetActive(false);
     }
     IEnumerator Map()
     {
