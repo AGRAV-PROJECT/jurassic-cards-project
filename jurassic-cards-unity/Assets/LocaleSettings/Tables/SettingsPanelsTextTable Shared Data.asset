@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: SettingsPanelsTextTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: SettingsPanelsTextTable
+  m_TableCollectionNameGuidString: 722c069f04a7faf4f874583fa977fad4
+  m_Entries:
+  - m_Id: 205168705536
+    m_Key: colorblindMode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 272764108800
+    m_Key: normalMode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1716540014592
+    m_Key: english
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1736869806080
+    m_Key: portuguese
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2711978377216
+    m_Key: voiceOverText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2740424146944
+    m_Key: on
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2782639816704
+    m_Key: off
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3550046453760
+    m_Key: fakeLocationText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10825607806976
+    m_Key: seniroModeText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20955288174592
+    m_Key: termsText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23771704590336
+    m_Key: patchNotes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25433294897152
+    m_Key: subject
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25452576112640
+    m_Key: message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25473233059840
+    m_Key: messagePlaceholder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25514706337792
+    m_Key: sendButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28388928651264
+    m_Key: name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28414790729728
+    m_Key: newPassword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28446415781888
+    m_Key: confirmPassword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28488757280768
+    m_Key: saveButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31885858308096
+    m_Key: changePIInfo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32062283317248
+    m_Key: confirmButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32200498216960
+    m_Key: oldPaassword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38548220805120
+    m_Key: deleteText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39970496708608
+    m_Key: deleteButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44620167905280
+    m_Key: rulesText
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 2440363921696096396
+  references:
+    version: 2
+    RefIds:
+    - rid: 2440363921696096396
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1672693012838

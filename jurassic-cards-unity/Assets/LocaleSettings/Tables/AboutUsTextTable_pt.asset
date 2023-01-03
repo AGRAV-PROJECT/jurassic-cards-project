@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: AboutUsTextTable_pt
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt
+  m_SharedData: {fileID: 11400000, guid: 33927db2cd9feec4ba3ee7f5be494a19, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 12679512064
+    m_Localized: Sobre Jurassic Cards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6912344064
+    m_Localized: "Jurassic Cards foi desenvolvido como parte da cadeira de Aplica\xE7\xF5es
+      Gr\xE1ficas Avan\xE7adas (AGRAV), que come\xE7ou no segundo semestre do segundo
+      ano de mestrado em Engenharia Inform\xE1tica no ramo de Sistemas Gr\xE1ficos
+      e Multim\xE9dia no Instituto Superior de Engenharia do Porto (ISEP) - Ano Acad\xE9mico
+      de 2022/2023.\r\n\r\nO jogo foi desenvolvido com a orienta\xE7\xE3o da professora
+      Paula Escudeiro, pelos seguintes membros do Grupo 01: Andr\xE9 Gon\xE7alves
+      (1191660), Andr\xE9 Morais (1210626), Daniel Dias (1181488), Francisco Dias
+      (1180615), Lu\xEDs Sousa (1170987), Miguel Cabeleira (1210632), Narciso Correia
+      (1200174), Sofia Canelas (1200185), e V\xEDtor Neto (1210130).\r\n\r\nO objetivo
+      do jogo \xE9 instruir os jogadores sobre dinossauros enquanto eles jogam e
+      divertem-se. Servi\xE7os de localiza\xE7\xE3o s\xE3o utilizados num mapa representativo
+      do pa\xEDs do utilizador, permitindo que o utilizador o explore enquanto interage
+      com outros elementos posicionados por outros utilizadores (f\xF3sseis). O jogo
+      tamb\xE9m tem capacidades AR para permitir o scan de cartas f\xEDsicas e permitir
+      o combate com outros jogadores. De referir ainda que o jogo tem tamb\xE9m o
+      objetivo de ser inclusivo, proporcionando maneiras mais f\xE1ceis para surdos,
+      deficientes, dalt\xF3nicos, e idosos conseguirem jogar."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

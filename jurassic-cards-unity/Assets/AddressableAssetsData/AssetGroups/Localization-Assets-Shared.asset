@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Shared
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-Shared
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 141ac73fd8ea52a499e1ae2dfd8180b0
+  m_SerializeEntries:
+  - m_GUID: f96cb2680a403b0409d2aa9473629e9a
+    m_Address: Assets/LocaleSettings/Tables/StringTextTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7875efe6f69ce5440874912f28a501db
+    m_Address: Assets/LocaleSettings/Tables/BattleTextTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe5b502732f637044aec0e20d7e00432
+    m_Address: Assets/LocaleSettings/Tables/GeneralTextTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33927db2cd9feec4ba3ee7f5be494a19
+    m_Address: Assets/LocaleSettings/Tables/AboutUsTextTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e839119601393545adf82325fde7276
+    m_Address: Assets/LocaleSettings/Tables/HomepageTextTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f190396b1889dec43a6b04eb57dea8d6
+    m_Address: Assets/LocaleSettings/Tables/SettingsTextTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 722c069f04a7faf4f874583fa977fad4
+    m_Address: Assets/LocaleSettings/Tables/SettingsPanelsTextTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c8ac832d6414ed4a8daf03f88beae99
+    m_Address: Assets/LocaleSettings/Tables/LandingTextTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c72d965a373f59478c360c421d7281a
+    m_Address: Assets/LocaleSettings/Tables/LoginTextTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b36a5d3c1920ef4f866aafad40caee1
+    m_Address: Assets/LocaleSettings/Tables/RecoverTextTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f56bf63b2f4eb04195e20f8f45ca93f
+    m_Address: Assets/LocaleSettings/Tables/RegisterTextTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b7511a55c0a7924d8d6763f79656c06
+    m_Address: Assets/LocaleSettings/Tables/ScanCardTextTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: a15c25b2b193a0d4fa5f876789cab9af, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 1788d5cdee76cc9409e5757c0594c2a5, type: 2}
+    - {fileID: 11400000, guid: 151a2fa7dc399854d882425f0a405cc9, type: 2}

@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Portuguese (pt)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-String-Tables-Portuguese (pt)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: d9d675a8e8893fd40954d5986133709e
+  m_SerializeEntries:
+  - m_GUID: d6be9b173c62d3b48ab5c8e21c2372bf
+    m_Address: CreateProfileTextTable_pt
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9b7f7e98dc2e2b4c90b6f5253cb0dd0
+    m_Address: BattleTextTable_pt
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d5ced71a21276247b43d3df980ca747
+    m_Address: GeneralTextTable_pt
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac8c35c3eaed51a4691fbfcd82d12653
+    m_Address: AboutUsTextTable_pt
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c56b6c4880116b4897f525a90864411
+    m_Address: HomepageTextTable_pt
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3957d4eec2068b840b3e87142f27b81b
+    m_Address: SettingsTextTable_pt
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5dc54f257c5acd64c880540461551b04
+    m_Address: SettingsPanelsTextTable_pt
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eafb2afc5a86bb8469698ff1b3f56dff
+    m_Address: LandingTextTable_pt
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3760591497a22e241a3d179ebf333c22
+    m_Address: LoginTextTable_pt
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92f2e665f0a00b14eb5df8f08eab4f1c
+    m_Address: RecoverTextTable_pt
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b51721b67bdfab848a3691cff6c4fea5
+    m_Address: RegisterTextTable_pt
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9ac9b9cd33751f4791f6cf2562e6ed5
+    m_Address: ScanCardTextTable_pt
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: a15c25b2b193a0d4fa5f876789cab9af, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d9ce7bf3b36719347b92a39d5af225fa, type: 2}
+    - {fileID: 11400000, guid: 6aa7c65d888461841a82a526e6ee1001, type: 2}

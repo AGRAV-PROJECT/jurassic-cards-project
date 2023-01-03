@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: HomepageTextTable_pt
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt
+  m_SharedData: {fileID: 11400000, guid: 8e839119601393545adf82325fde7276, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 2440363921696096368
+  m_TableData:
+  - m_Id: 11639324672
+    m_Localized: "Plantar F\xF3ssil"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 207060336640
+    m_Localized: Perfil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 333485047808
+    m_Localized: "Pontua\xE7\xE3o: {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 2440363921696096368
+  - m_Id: 441408684032
+    m_Localized: 'Membro Desde: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 2440363921696096368
+  - m_Id: 472526225408
+    m_Localized: 'Total de Cartas: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 2440363921696096368
+  - m_Id: 840031141888
+    m_Localized: "Os Meus F\xF3sseis"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 814026457088
+    m_Localized: Mudar Avatar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2008216109056
+    m_Localized: Adicionar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1949323886592
+    m_Localized: Procurar carta...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1909327003648
+    m_Localized: '{0} cartas'
+    m_Metadata:
+      m_Items:
+      - rid: 2440363921696096368
+  - m_Id: 1877815197696
+    m_Localized: As Minhas Cartas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4977271635968
+    m_Localized: Guardar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4950772023296
+    m_Localized: Mudar Avatar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57904300425216
+    m_Localized: Insere a Longitude
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57951830278144
+    m_Localized: Insere a Latitude
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 2440363921696096368
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 000042a54d000000000002c6660000000000c2046e0000000000c28cbc010000

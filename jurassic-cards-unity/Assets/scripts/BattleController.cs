@@ -9,8 +9,8 @@ public class BattleController : MonoBehaviour
 {
     List<GameObject> menuNavigation = new List<GameObject>();
     bool flashModeActivated = false;
-    const string TEXT_FLASH_MODE_BUTTON_OFF = "FLASH MODE: OFF";
-    const string TEXT_FLASH_MODE_BUTTON_ON = "FLASH MODE: ON";
+    [SerializeField] private Text flashModeTextOn;
+    [SerializeField] private Text flashModeTextOff;
 
     // Toggles flash mode
     public void FlashModeToggle()
@@ -18,13 +18,15 @@ public class BattleController : MonoBehaviour
         if (flashModeActivated)
         {
             // Turn off
-            EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text = TEXT_FLASH_MODE_BUTTON_OFF;
+            flashModeTextOff.gameObject.SetActive(true);
+            flashModeTextOn.gameObject.SetActive(false);
             flashModeActivated = false;
         }
         else
         {
             // Turn on
-            EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text = TEXT_FLASH_MODE_BUTTON_ON;
+            flashModeTextOn.gameObject.SetActive(true);
+            flashModeTextOff.gameObject.SetActive(false);
             flashModeActivated = true;
         }
     }

@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: SettingsTextTable_pt
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt
+  m_SharedData: {fileID: 11400000, guid: f190396b1889dec43a6b04eb57dea8d6, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 12041977856
+    m_Localized: "Op\xE7\xF5es"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49992040448
+    m_Localized: Ajustes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78358118400
+    m_Localized: Sobre O Jogo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 107625971712
+    m_Localized: Outras
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132175233024
+    m_Localized: A Minha Conta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 443543584768
+    m_Localized: Mudar Cores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 795772846080
+    m_Localized: "Modo S\xE9nior"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 732153643008
+    m_Localized: "Localiza\xE7\xE3o Falsa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 627245711360
+    m_Localized: Mudar Idioma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2986852089856
+    m_Localized: "Termos e Condi\xE7\xF5es"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2962911002624
+    m_Localized: Sobre Jurassic Cards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2932636516352
+    m_Localized: Regras do Jurassic Cards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3745865924608
+    m_Localized: Apagar Conta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3709430005760
+    m_Localized: "Mudar Informa\xE7\xE3o Pessoal"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3574910287872
+    m_Localized: Ajuda / Contactos / Feedback
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3658347577344
+    m_Localized: "Notas de Atualiza\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

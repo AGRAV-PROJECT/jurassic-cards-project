@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +11,18 @@ public class HomePageController : MonoBehaviour
     List<GameObject> menuNavigation = new List<GameObject>();
     public InputField deleteAccountPasswordTextField;
     public GameObject scanCardMenu;
+
+    public void ChangeLanguage(int id)
+    {
+        PlayerPrefs.SetInt("languageID", id);
+        StartCoroutine(ChangeLanguageCoroutine(id));
+    }
+
+    IEnumerator ChangeLanguageCoroutine(int id)
+    {
+        yield return LocalizationSettings.InitializationOperation;
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[id];
+    }
 
     public void OpenScanCardMenu()
     {

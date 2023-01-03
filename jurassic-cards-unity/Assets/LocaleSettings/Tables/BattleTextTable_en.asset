@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: BattleTextTable_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 7875efe6f69ce5440874912f28a501db, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 245618573312
+    m_Localized: Battle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 297527279616
+    m_Localized: "Put one of your card\u2019s QR Codes and the player two\u2019s
+      visible in the camera. You can still change the dinosaur who you\u2019re both
+      going to fight with later. \r\nNote: The scan must be done in both devices."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 301713195008
+    m_Localized: 'At the beginning of combat, a coin is tossed to define who will
+      start the first attack.
+
+      After launch, players will have 10 seconds
+      to choose which dinosaur they will use.
+
+      Each player can only attack
+      in their turn and these attacks are interspersed between players.
+
+      Every
+      3 attacks, the player has the option to launch a special attack, that is, if
+      the player launches a special attack on the first attack, on the next two he
+      will not be able to do so, being forced to launch a basic attack.
+
+      Every
+      5 attacks, the player has the option to launch a protection, that is, if the
+      player launches a protection in the first attack, in the next 4 he will not
+      be able to do so, being forced to launch a basic attack.
+
+      First to kill
+      the enemy wins.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 304401743872
+    m_Localized: Battle Rules
+    m_Metadata:
+      m_Items: []
+  - m_Id: 308260503552
+    m_Localized: 'Flash Mode: On'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 743901888512
+    m_Localized: 'Flash Mode: Off'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,195 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: SettingsPanelsTextTable_pt
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt
+  m_SharedData: {fileID: 11400000, guid: 722c069f04a7faf4f874583fa977fad4, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 272764108800
+    m_Localized: Modo Normal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 205168705536
+    m_Localized: "Modo Dalt\xF3nico"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1736869806080
+    m_Localized: "Portugu\xEAs"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1716540014592
+    m_Localized: "Ingl\xEAs"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2740424146944
+    m_Localized: Sim
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2782639816704
+    m_Localized: "N\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2711978377216
+    m_Localized: "Isto \xE9 uma op\xE7\xE3o que permite ao utilizador ouvir o texto
+      que aparece no ecr\xE3. Isto melhora a capacidade de intera\xE7\xE3o com o
+      jogo para os jogadores que n\xE3o conseguem ler o que est\xE1 no ecr\xE3."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3550046453760
+    m_Localized: "Esta \xE9 uma op\xE7\xE3o que possibilita estar em qualquer ponto
+      do pa\xEDs. Com um joystick na tela, o jogador pode simular que est\xE1 em
+      qualquer distrito. Esta \xE9 uma op\xE7\xE3o para os jogadores que t\xEAm limita\xE7\xF5es
+      de mobilidade."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10825607806976
+    m_Localized: "Com esta op\xE7\xE3o ativada, alguns textos e \xEDcones ficam maiores.
+      \xDAtil para pessoas mais idosas verem o conte\xFAdo mais rapidamente."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20955288174592
+    m_Localized: "Estes termos e condi\xE7\xF5es (\u201CContrato\u201D) estabelecem
+      os termos e condi\xE7\xF5es gerais de uso do aplicativo m\xF3vel \u201CJurassic
+      Cards\u201D (\u201CAplicativo m\xF3vel\u201D ou \u201CServi\xE7o\u201D) e qualquer
+      um de seus produtos e servi\xE7os relacionados (coletivamente, \u201CServi\xE7os
+      \u201D). Este Contrato \xE9 juridicamente vinculativo entre voc\xEA (\u201CUsu\xE1rio\u201D,
+      \u201Cvoc\xEA\u201D ou \u201Cseu\u201D) e este desenvolvedor de aplicativo
+      m\xF3vel (\u201COperador\u201D, \u201Cn\xF3s\u201D, \u201Cn\xF3s\u201D ou \u201Cnosso\u201D).
+      Se voc\xEA est\xE1 celebrando este contrato em nome de uma empresa ou outra
+      entidade legal, voc\xEA declara que tem autoridade para vincular tal entidade
+      a este contrato, caso em que os termos \u201CUsu\xE1rio\u201D, \u201Cvoc\xEA\u201D
+      ou \u201Cseu\u201D devem se referir a tal entidade. Se voc\xEA n\xE3o tiver
+      tal autoridade, ou se n\xE3o concordar com os termos deste contrato, voc\xEA
+      n\xE3o deve aceitar este contrato e n\xE3o pode acessar e usar o Aplicativo
+      M\xF3vel e os Servi\xE7os. Ao acessar e usar o Aplicativo M\xF3vel e os Servi\xE7os,
+      voc\xEA reconhece que leu, entendeu e concorda em ficar vinculado aos termos
+      deste Contrato. Voc\xEA reconhece que este Contrato \xE9 um contrato entre
+      voc\xEA e a Operadora, mesmo que seja eletr\xF4nico e n\xE3o seja assinado
+      fisicamente por voc\xEA, e rege seu uso do Aplicativo e Servi\xE7os M\xF3veis."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23771704590336
+    m_Localized: "Vers\xE3o 1.0\r\nFuncionalidades inclu\xEDdas:\r\nRegistre-se e
+      fa\xE7a login na conta do jogador\r\nDigitalizar cart\xF5es apontando para
+      seu c\xF3digo qr\r\nSuporte para aprender com cart\xF5es digitalizados\r\nSuporte
+      para personaliza\xE7\xE3o de perfil\r\nO usu\xE1rio pode colocar f\xF3sseis
+      no distrito de qualquer pa\xEDs, ap\xF3s digitaliz\xE1-lo\r\nO jogador pode
+      digitalizar cartas para come\xE7ar a batalhar\r\nAs pontua\xE7\xF5es s\xE3o
+      exibidas para ambos os oponentes"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25433294897152
+    m_Localized: Assunto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25452576112640
+    m_Localized: Mensagem
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25473233059840
+    m_Localized: Inserir texto...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25514706337792
+    m_Localized: Enviar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28388928651264
+    m_Localized: Nome
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28414790729728
+    m_Localized: Password Nova
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28446415781888
+    m_Localized: Confirmar Password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28488757280768
+    m_Localized: Guardar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31885858308096
+    m_Localized: "Por favor insira a sua passowrd antiga para confirmar as altera\xE7\xF5es."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32062283317248
+    m_Localized: Confirmar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32200498216960
+    m_Localized: Password Antiga
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38548220805120
+    m_Localized: "Tens a certeza de que queres apagar a tua conta de Jurassic Cards?
+      Esta a\xE7\xE3o n\xE3o \xE9 revers\xEDvel."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39970496708608
+    m_Localized: Apagar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44620167905280
+    m_Localized: "O jogador pode ca\xE7ar, coletar e lutar contra dinossauros usando
+      a c\xE2mera de seu telefone\r\nAo pegar um f\xF3ssil, o jogador pode interagir
+      com o desenvolvimento do jogo: colocando o f\xF3ssil onde quiser para ele ou
+      outros jogadores pegarem no futuro\r\nCada dinossauro tem uma carta associada
+      a ele\r\nO jogador pode coletar as cartas dos dinossauros e us\xE1-las em batalhas\r\nAs
+      batalhas s\xE3o travadas aplicando os recursos AR do telefone do jogador\r\nDurante
+      as batalhas, quando as cartas s\xE3o vis\xEDveis pela c\xE2mera, um dinossauro
+      \xE9 gerado em cima delas\r\nDurante a batalha, o jogador pode dar instru\xE7\xF5es
+      ao dinossauro para lutar contra o animal antigo do outro jogador.\r\nNo modo
+      de ca\xE7a, o jogo \xE9 jogado apenas por uma pessoa\r\nExiste a possibilidade
+      de lutar contra os dinossauros de outros jogadores que transformam o jogo em
+      um jogo multiplayer\r\nEsta batalha tem uma dura\xE7\xE3o de 2 a 5 minutos\r\nA
+      intera\xE7\xE3o do jogador com o jogo n\xE3o tem um tempo definido, pois fica
+      a crit\xE9rio do usu\xE1rio levar um tempo aprendendo as caracter\xEDsticas
+      dos dinossauros\r\nTamb\xE9m pode ser jogado por qualquer idade, em quase todas
+      as circunst\xE2ncias: surdos, dalt\xF4nicos, deficientes, idosos e estrangeiros\r\n\r\nO
+      jogador precisa pegar algumas cartas para come\xE7ar a jogar\r\nEm uma situa\xE7\xE3o
+      normal, as cartas seriam compradas em uma loja e o jogador poderia escanear
+      as cartas\r\nCada carta refere-se a um \xFAnico dinossauro e, a partir do momento
+      em que o jogador escaneia a carta, ela vai para o invent\xE1rio e passa a fazer
+      parte do conjunto de cartas que o usu\xE1rio pode usar em batalha.\r\n\r\nTodas
+      as cartas digitalizadas est\xE3o no invent\xE1rio do jogador\r\nO jogador pode
+      investigar cada um dos dinossauros para aprender sobre eles.\r\nOs dinossauros
+      n\xE3o descobertos est\xE3o escondidos por uma silhueta negra, e toda a informa\xE7\xE3o
+      que o usu\xE1rio pode obter \xE9 o seu tipo: lagarto, ar, \xE1gua, terra\u2026\r\nO
+      jogador pode obter/atualizar informa\xE7\xF5es de perfil, bem como ver as classifica\xE7\xF5es
+      de outros jogadores\r\n\r\nWhen the player chooses to fight against another
+      player, first he needs to select a dinosaur and then place a spawn card on
+      the table/floor visible to the phone\u2019s camera\r\nDuring the fight, the
+      player chooses to attack, dodge, or defend from the opponent\u2019s attack\r\nWhen
+      winning, the winner\u2019s dinosaur gets rewarded with XP, which is used to
+      level up the dinosaur and even to evolve it\r\nIf the player loses, he needs
+      to use in-game currency to buy energy bottles to cure the dinosaur\r\nIn-game
+      currency can be earned by completing missions or by buying items in the store
+      (with real money)\r\n\r\nWinning or losing, the player can check his ranking
+      as well as other players' rankings\r\nThis ranking is calculated based on the
+      player's dinosaurs\u2019 eXPerience\r\nA player\u2019s experience determines
+      his ranking and is the sum of his dinosaur\u2019s XP\r\nThe player can check
+      their dinosaurs to take care of them, and check if they can be evolved to a
+      new and better version of themselves\r\n\r\nThe player can interact with the
+      game's development by interfering with other players' progress\r\nIf the player
+      finds a fossil, which can be a physical card, he can \u201Cseed\u201D the fossil,
+      so in that region other players can only find that type of dinosaur"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

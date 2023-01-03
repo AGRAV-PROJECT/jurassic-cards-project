@@ -1,0 +1,191 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: SettingsPanelsTextTable_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 722c069f04a7faf4f874583fa977fad4, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 205168705536
+    m_Localized: Colorblind Mode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 272764108800
+    m_Localized: Normal Mode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1716540014592
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1736869806080
+    m_Localized: Portuguese
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2782639816704
+    m_Localized: Off
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2740424146944
+    m_Localized: On
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2711978377216
+    m_Localized: "This is a feature that enables the player to listen to any text
+      on the screen. This improves the capability of interaction with the game for
+      those players who are not able to read what\u2019s on the screen.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3550046453760
+    m_Localized: "This is a feature that enables the possibility of being anywhere
+      in the country. With a joystick on the screen, the player can simulate that
+      he/she is in any district. This is a feature for those players who have mobility
+      limitations.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10825607806976
+    m_Localized: With this feature enabled, some text and icons get bigger. This
+      is useful for older people to see the content faster.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20955288174592
+    m_Localized: "These terms and conditions (\u201CAgreement\u201D) set forth the
+      general terms and conditions of your use of the \u201CJurassic Cards\u201D
+      mobile application (\u201CMobile Application\u201D or \u201CService\u201D)
+      and any of its related products and services (collectively, \u201CServices\u201D).
+      This Agreement is legally binding between you (\u201CUser\u201D, \u201Cyou\u201D
+      or \u201Cyour\u201D) and this Mobile Application developer (\u201COperator\u201D,
+      \u201Cwe\u201D, \u201Cus\u201D or \u201Cour\u201D). If you are entering into
+      this agreement on behalf of a business or other legal entity, you represent
+      that you have the authority to bind such entity to this agreement, in which
+      case the terms \u201CUser\u201D, \u201Cyou\u201D or \u201Cyour\u201D shall
+      refer to such entity. If you do not have such authority, or if you do not agree
+      with the terms of this agreement, you must not accept this agreement and may
+      not access and use the Mobile Application and Services. By accessing and using
+      the Mobile Application and Services, you acknowledge that you have read, understood,
+      and agree to be bound by the terms of this Agreement. You acknowledge that
+      this Agreement is a contract between you and the Operator, even though it is
+      electronic and is not physically signed by you, and it governs your use of
+      the Mobile Application and Services."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23771704590336
+    m_Localized: "Version 1.0\r\nFeatures Included:\r\nSign-up and Sign-in into player
+      account\r\nScan cards pointing to their qr code\r\nSupport to learn from scanned
+      cards\r\nSupport to profile customization\r\nUser can place fossils in any
+      country\u2019s district, after scanning it\r\nPlayer can scan cards to start
+      battling\r\nScores are displayed to both opponents\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25433294897152
+    m_Localized: Subject
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25452576112640
+    m_Localized: Message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25473233059840
+    m_Localized: Enter text...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25514706337792
+    m_Localized: Send
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28388928651264
+    m_Localized: Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28414790729728
+    m_Localized: New Password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28446415781888
+    m_Localized: Confirm Password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28488757280768
+    m_Localized: Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31885858308096
+    m_Localized: Please enter your old password to confirm the changes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32062283317248
+    m_Localized: Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32200498216960
+    m_Localized: Old Password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38548220805120
+    m_Localized: Are you sure you want to delete your Jurassic Cards account? This
+      action is irreversible.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39970496708608
+    m_Localized: Delete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44620167905280
+    m_Localized: "The player can hunt, collect and fight dinosaurs using his phone\u2019s
+      camera\r\nWhen catching a fossil, the player can interact with the development
+      of the game: by placing the fossil wherever he wants to him or other players
+      catch in the future\r\nEach dinosaur has a card associated with it\r\nThe player
+      can collect the dinosaurs\u2019 cards and use them in battles\r\nThe battles
+      are fought by applying the AR capabilities of player\u2019s phone\r\nDuring
+      battles, when the cards are visible by the camera, a dinosaur is spawned on
+      top of it\r\nWhile battling the player can give instructions to the dinosaur
+      to fight the other player\u2019s ancient animal\r\nWhile in hunting mode, the
+      game is played only by one person\r\nThere is the possibility to fight against
+      other players\u2019 dinosaurs which turn the game into a multiplayer game\r\nThis
+      battle has a duration of 2 to 5 minutes long\r\nThe player interaction with
+      the game does not have a defined time because it is the user's choice to take
+      time learning dinosaur characteristics\r\nIt can also be played by any age,
+      under almost every circumstance: deaf, color blinded, disabled people, seniors
+      and foreigners\r\n\r\nThe player needs to get some cards to start playing\r\nIn
+      a normal situation, the cards would be bought in a store, and then the player
+      could scan the cards\r\nEach card refers to a single dinosaur, and from the
+      moment a player scans the card, it goes into the inventory and becomes part
+      of the set of cards that the user can use in battle.\r\n\r\nAll the scanned
+      cards are in the player's inventory\r\nThe player can investigate each of the
+      dinosaurs to learn about them.\r\nThe undiscovered dinosaurs are hidden by
+      a black silhouette, and all the information the user can get is their type:
+      lizard, air, water, ground\u2026\r\nThe player can get/update profile information
+      as well as see other players' rankings\r\n\r\nWhen the player chooses to fight
+      against another player, first he needs to select a dinosaur and then place
+      a spawn card on the table/floor visible to the phone\u2019s camera\r\nDuring
+      the fight, the player chooses to attack, dodge, or defend from the opponent\u2019s
+      attack\r\nWhen winning, the winner\u2019s dinosaur gets rewarded with XP, which
+      is used to level up the dinosaur and even to evolve it\r\nIf the player loses,
+      he needs to use in-game currency to buy energy bottles to cure the dinosaur\r\nIn-game
+      currency can be earned by completing missions or by buying items in the store
+      (with real money)\r\nWinning or losing, the player can check his ranking as
+      well as other players' rankings\r\nThis ranking is calculated based on the
+      player's dinosaurs\u2019 eXPerience\r\nA player\u2019s experience determines
+      his ranking and is the sum of his dinosaur\u2019s XP\r\nThe player can check
+      their dinosaurs to take care of them, and check if they can be evolved to a
+      new and better version of themselves\r\n\r\nThe player can interact with the
+      game's development by interfering with other players' progress\r\nIf the player
+      finds a fossil, which can be a physical card, he can \u201Cseed\u201D the fossil,
+      so in that region other players can only find that type of dinosaur"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

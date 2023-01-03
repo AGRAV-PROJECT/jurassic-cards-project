@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: BattleTextTable_pt
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt
+  m_SharedData: {fileID: 11400000, guid: 7875efe6f69ce5440874912f28a501db, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 245618573312
+    m_Localized: Combate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 297527279616
+    m_Localized: "P\xF5e o c\xF3digo QR de uma das tuas cartas e o da carta do teu
+      oponente de forma a aparecerem na c\xE2mera. Conseguem alterar o dinosauro
+      que v\xE3o utilizar para combater mais tarde.\r\nNota: O scan deve ser feito
+      em ambos os dispositivos."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 301713195008
+    m_Localized: "No in\xEDcio do combate, uma moeda \xE9 lan\xE7ada para definir
+      quem iniciar\xE1 o primeiro ataque.\r\nAp\xF3s o lan\xE7amento, os jogadores
+      ter\xE3o 10 segundos para escolher qual dinossauro ir\xE3o usar.\r\nCada jogador
+      s\xF3 pode atacar na sua vez e os ataques s\xE3o intercalados entre os jogadores.\r\nA
+      cada 3 ataques, o jogador tem a op\xE7\xE3o de usar um ataque especial, ou
+      seja, se o jogador usar um ataque especial no primeiro ataque, nos pr\xF3ximos
+      dois n\xE3o poder\xE1 faz\xEA-lo, sendo obrigado a usar um ataque b\xE1sico.\r\nA
+      cada 5 ataques, o jogador tem a op\xE7\xE3o de usar uma prote\xE7\xE3o, ou
+      seja, se o jogador usar uma prote\xE7\xE3o no primeiro ataque, nos 4 seguintes
+      n\xE3o poder\xE1 faz\xEA-lo, sendo obrigado a usar um ataque b\xE1sico.\r\nO
+      primeiro a matar o inimigo vence."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 304401743872
+    m_Localized: Regras de Combate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 308260503552
+    m_Localized: 'Modo Flash: Sim'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 743901888512
+    m_Localized: "Modo Flash: N\xE3o"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
