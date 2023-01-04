@@ -13,6 +13,8 @@ public class RegisterController : MonoBehaviour
     public Text emailTextField;
     public Text passwordTextField;
     public Text confirmPasswordTextField;
+    public InputField passwordInputField;
+    public InputField confirmPasswordInputField;
 
     // Check if user is loggedin or not
     bool isLoggedIn = false;
@@ -79,8 +81,10 @@ public class RegisterController : MonoBehaviour
         // Get text input fields
         string userName = usernameTextField.text.ToString();
         string email = emailTextField.text.ToString();
-        string password = passwordTextField.text.ToString();
-        string confirmPassword = confirmPasswordTextField.text.ToString();
+        //string password = passwordTextField.text.ToString(); // This does not work, it returns the *s, we want the text value of the input field, not the text
+        //string confirmPassword = confirmPasswordTextField.text.ToString();
+        string password = passwordInputField.text;
+        string confirmPassword = confirmPasswordInputField.text;
 
         // Create user class
         var user = new User();
@@ -99,7 +103,7 @@ public class RegisterController : MonoBehaviour
             string json = JsonUtility.ToJson(user);
 
             // Create web request
-            var request = new UnityWebRequest("http://127.0.0.1:5000/account/signup", "POST"); // TODO: Deploy API and change request URI accordingly
+            var request = new UnityWebRequest("https://jurassic-cards.herokuapp.com/account/signup", "POST");
 
             // Encode JSON to send in the request and change content type on request header accordingly
             byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
@@ -121,7 +125,7 @@ public class RegisterController : MonoBehaviour
             }
 
             // Get userID
-            string uri = "http://127.0.0.1:5000/account/getCurrentUserID/" + userName;
+            string uri = "https://jurassic-cards.herokuapp.com/account/getCurrentUserID/" + userName;
             using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
             {
                 // Request and wait for the desired page.

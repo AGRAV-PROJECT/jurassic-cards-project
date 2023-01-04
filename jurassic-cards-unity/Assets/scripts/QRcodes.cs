@@ -38,6 +38,23 @@ public class QRcodes : MonoBehaviour
         public bool hasBeenRedeemed;
     }
 
+    public class Card
+    {
+        public int cardID;
+        public string cardName;
+        public string cardDescription;
+        public int combatPoints;
+        public int cardLevel;
+        public int agility;
+        public int attack;
+        public int health;
+        public string ability1;
+        public string ability2;
+        public string ability3;
+        public string ownedSince;
+        public string image;
+    }
+
 
 
     void Start()
@@ -65,12 +82,58 @@ public class QRcodes : MonoBehaviour
         }
     }
 
+    // Logic for adding card to DB
+    IEnumerator AddCard(int tempCardID)
+    {
+        var card = new Card();
+        card.cardID = tempCardID;
+        card.cardName = "Plesiossauros";
+        card.cardDescription = "PlesiossaurosDescription";
+        card.combatPoints = 10;
+        card.cardLevel = 1;
+        card.agility = 10;
+        card.attack = 6;
+        card.health = 7;
+        card.ability1 = "Splash";
+        card.ability2 = "Bite";
+        card.ability3 = "Tsunami";
+        card.ownedSince = "test";
+        card.image = "replaceWithPlesiossaurosImageFromUnityAssets";
+
+        string uri = "http://127.0.0.1:5000/cards/scan/" + PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString();
+        
+        // Create JSON from class
+        string json = JsonUtility.ToJson(card);
+        // Create web request
+        var request = new UnityWebRequest(uri, "POST");
+
+        // Encode JSON to send in the request and change content type on request header accordingly
+        byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
+        request.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
+        request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+
+        // Make the request and check for its success
+        yield return request.SendWebRequest();
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(request.error);
+            request.Dispose();
+        }
+        else
+        {
+            Debug.Log("Card registered successfully!");
+            request.Dispose();
+        }
+    }
+
     //if some qr code is found
     public void Found()
     {
         //if qr code 13 is found
         if (text.text == "card13")
         {
+            StartCoroutine(AddCard(13));
             wasScanned = true;
             Debug.Log("found qr code 13");
             cardIdQRcode = 13;

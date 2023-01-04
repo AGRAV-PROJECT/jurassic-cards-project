@@ -2902,6 +2902,8 @@ MonoBehaviour:
   emailTextField: {fileID: 1087596242}
   passwordTextField: {fileID: 1915894689}
   confirmPasswordTextField: {fileID: 1171210009}
+  passwordInputField: {fileID: 751226153}
+  confirmPasswordInputField: {fileID: 266507660}
 --- !u!1 &1800348968
 GameObject:
   m_ObjectHideFlags: 0

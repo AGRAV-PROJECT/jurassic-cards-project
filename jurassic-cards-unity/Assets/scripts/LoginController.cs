@@ -29,6 +29,7 @@ public class LoginController : MonoBehaviour
     }
 
     public Text emailGameObject, passwordGameObject;
+    public InputField passwordInputField;
 
     public void LoginFunction()
     {
@@ -40,7 +41,8 @@ public class LoginController : MonoBehaviour
     {
         // Get text input fields
         string email    = emailGameObject.text.ToString();
-        string password = passwordGameObject.text.ToString();
+        //string password = passwordGameObject.text.ToString(); // This does not work, it returns the *s, we want the text value of the input field, not the text
+        string password = passwordInputField.text;
 
         // Create user class
         var user      = new User();
@@ -48,7 +50,7 @@ public class LoginController : MonoBehaviour
         user.password = password;
 
         // Login
-        string uri = "http://127.0.0.1:5000/account/login";
+        string uri = "https://jurassic-cards.herokuapp.com/account/login";
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
 
