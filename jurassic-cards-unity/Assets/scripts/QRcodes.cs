@@ -86,19 +86,70 @@ public class QRcodes : MonoBehaviour
     IEnumerator AddCard(int tempCardID)
     {
         var card = new Card();
-        card.cardID = tempCardID;
-        card.cardName = "Plesiossauros";
-        card.cardDescription = "PlesiossaurosDescription";
-        card.combatPoints = 10;
-        card.cardLevel = 1;
-        card.agility = 10;
-        card.attack = 6;
-        card.health = 7;
-        card.ability1 = "Splash";
-        card.ability2 = "Bite";
-        card.ability3 = "Tsunami";
-        card.ownedSince = "test";
-        card.image = "replaceWithPlesiossaurosImageFromUnityAssets";
+        if(tempCardID == 13)
+        {
+            card.cardID = tempCardID;
+            card.cardName = "Plesiossauros";
+            card.cardDescription = "PlesiossaurosDescription";
+            card.combatPoints = 10;
+            card.cardLevel = 1;
+            card.agility = 10;
+            card.attack = 6;
+            card.health = 7;
+            card.ability1 = "Splash";
+            card.ability2 = "Bite";
+            card.ability3 = "Tsunami";
+            card.ownedSince = "test";
+            card.image = "replaceWithPlesiossaurosImageFromUnityAssets";
+        }
+        if(tempCardID == 14)
+        {
+            card.cardID = 14;
+            card.cardName = "Spinosauros";
+            card.cardDescription = "SpinosaurosDescription";
+            card.combatPoints = 13;
+            card.cardLevel = 1;
+            card.agility = 5;
+            card.attack = 12;
+            card.health = 7;
+            card.ability1 = "Splash";
+            card.ability2 = "Scratch";
+            card.ability3 = "Fear";
+            card.ownedSince = "test";
+            card.image = "replaceWithPlesiossaurosImageFromUnityAssets";
+        }
+        if(tempCardID == 15)
+        {
+            card.cardID = 15;
+            card.cardName = "T-Rex";
+            card.cardDescription = "TRexDescription";
+            card.combatPoints = 15;
+            card.cardLevel = 1;
+            card.agility = 2;
+            card.attack = 15;
+            card.health = 6;
+            card.ability1 = "Ferocious Bite";
+            card.ability2 = "Stomp";
+            card.ability3 = "Fear";
+            card.ownedSince = "test";
+            card.image = "replaceWithPlesiossaurosImageFromUnityAssets";
+        }
+        if(tempCardID == 16)
+        {
+            card.cardID = 16;
+            card.cardName = "Triceratops";
+            card.cardDescription = "TriceratopsDescription";
+            card.combatPoints = 9;
+            card.cardLevel = 1;
+            card.agility = 5;
+            card.attack = 7;
+            card.health = 13;
+            card.ability1 = "Shield Bash";
+            card.ability2 = "Protection";
+            card.ability3 = "Charge";
+            card.ownedSince = "test";
+            card.image = "replaceWithPlesiossaurosImageFromUnityAssets";
+        }
 
         string uri = "http://127.0.0.1:5000/cards/scan/" + PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString();
         
@@ -117,6 +168,10 @@ public class QRcodes : MonoBehaviour
         yield return request.SendWebRequest();
         if (request.result != UnityWebRequest.Result.Success)
         {
+            if(request.downloadHandler.text.Contains("repeated"))
+            {
+                Debug.Log("Card has already been redeemed");
+            }
             Debug.Log(request.error);
             request.Dispose();
         }
@@ -144,6 +199,7 @@ public class QRcodes : MonoBehaviour
         //if qr code 14 is found
         if (text.text == "card14")
         {
+            StartCoroutine(AddCard(14));
             wasScanned = true;
             cardIdQRcode = 14;
             CreateJSONforCard14();
@@ -152,6 +208,7 @@ public class QRcodes : MonoBehaviour
 
         if (text.text == "card15")
         {
+            StartCoroutine(AddCard(15));
             wasScanned = true;
             cardIdQRcode = 15;
             CreateJSONforCard15();
@@ -160,6 +217,7 @@ public class QRcodes : MonoBehaviour
 
         if (text.text == "card16")
         {
+            StartCoroutine(AddCard(16));
             wasScanned = true;
             cardIdQRcode = 16;
             CreateJSONforCard16();
