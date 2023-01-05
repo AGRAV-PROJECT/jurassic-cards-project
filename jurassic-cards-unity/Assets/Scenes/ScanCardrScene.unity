@@ -1470,6 +1470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 391679584}
   - component: {fileID: 391679585}
+  - component: {fileID: 391679586}
   m_Layer: 0
   m_Name: ScanCardAr
   m_TagString: Untagged
@@ -1509,6 +1510,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55021e05c443afe46aa56808c19b58f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &391679586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391679583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2134c6d62a0d5644cb397c22ea7709f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &396043811

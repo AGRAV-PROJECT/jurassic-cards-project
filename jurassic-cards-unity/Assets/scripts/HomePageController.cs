@@ -11,6 +11,18 @@ public class HomePageController : MonoBehaviour
     List<GameObject> menuNavigation = new List<GameObject>();
     public InputField deleteAccountPasswordTextField;
     public GameObject scanCardMenu;
+    public GameObject settingsMenu;
+    public GameObject seniorModeMenu;
+
+    private void Start()
+    {
+        if (PlayerPrefs.GetInt("justChangedSeniorMode", 0) == 1)
+        {
+            PlayerPrefs.SetInt("justChangedSeniorMode", 0);
+            OpenBaseMenu(settingsMenu);
+            OpenMenuWithoutHiding(seniorModeMenu);
+        }
+    }
 
     public void ChangeLanguage(int id)
     {
@@ -22,6 +34,20 @@ public class HomePageController : MonoBehaviour
     {
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[id];
+    }
+
+    public void SetSeniorMode(int value)
+    {
+        if (PlayerPrefs.GetInt("seniorMode", 0) == 0 && value == 1)
+        {
+            PlayerPrefs.SetInt("seniorMode", 1);
+        } else if (PlayerPrefs.GetInt("seniorMode", 0) == 1 && value == 0)
+        {
+            PlayerPrefs.SetInt("seniorMode", 0);
+        }
+        PlayerPrefs.SetInt("justChangedSeniorMode", 1);
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 
     public void OpenScanCardMenu()

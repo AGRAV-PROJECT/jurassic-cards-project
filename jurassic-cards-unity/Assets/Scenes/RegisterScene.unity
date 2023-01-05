@@ -2443,7 +2443,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.62238, y: -459}
-  m_SizeDelta: {x: 440.9873, y: 50}
+  m_SizeDelta: {x: 674.7024, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1591329407
 MonoBehaviour:
@@ -2806,6 +2806,7 @@ GameObject:
   - component: {fileID: 1727391470}
   - component: {fileID: 1727391469}
   - component: {fileID: 1727391471}
+  - component: {fileID: 1727391472}
   m_Layer: 5
   m_Name: RegisterPagePanel
   m_TagString: Untagged
@@ -2904,6 +2905,18 @@ MonoBehaviour:
   confirmPasswordTextField: {fileID: 1171210009}
   passwordInputField: {fileID: 751226153}
   confirmPasswordInputField: {fileID: 266507660}
+--- !u!114 &1727391472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727391467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2134c6d62a0d5644cb397c22ea7709f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1800348968
 GameObject:
   m_ObjectHideFlags: 0
