@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ScanCardController : MonoBehaviour
 {
+    string API_URI = "https://jurassic-cards.herokuapp.com/";
+    
     //Go to Home page
     public void ChangeToHomePage()
     {

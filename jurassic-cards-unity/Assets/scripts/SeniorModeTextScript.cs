@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class SeniorModeTextScript : MonoBehaviour
 {
+    string API_URI = "https://jurassic-cards.herokuapp.com/";
+    
     // Start is called before the first frame update
     void Start()
     {

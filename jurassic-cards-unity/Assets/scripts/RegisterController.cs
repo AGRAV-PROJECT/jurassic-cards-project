@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class RegisterController : MonoBehaviour
 {
+    string API_URI = "https://jurassic-cards.herokuapp.com/";
+
     // Text fields
     public Text usernameTextField;
     public Text emailTextField;
@@ -103,7 +105,7 @@ public class RegisterController : MonoBehaviour
             string json = JsonUtility.ToJson(user);
 
             // Create web request
-            var request = new UnityWebRequest("https://jurassic-cards.herokuapp.com/account/signup", "POST");
+            var request = new UnityWebRequest(API_URI + "account/signup", "POST");
 
             // Encode JSON to send in the request and change content type on request header accordingly
             byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
@@ -125,7 +127,7 @@ public class RegisterController : MonoBehaviour
             }
 
             // Get userID
-            string uri = "https://jurassic-cards.herokuapp.com/account/getCurrentUserID/" + userName;
+            string uri = API_URI + "account/getCurrentUserID/" + userName;
             using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
             {
                 // Request and wait for the desired page.

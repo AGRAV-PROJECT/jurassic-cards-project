@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class LoginController : MonoBehaviour
 {
-
+    string API_URI = "https://jurassic-cards.herokuapp.com/";
     // User
     public class User
     {
@@ -50,7 +50,7 @@ public class LoginController : MonoBehaviour
         user.password = password;
 
         // Login
-        string uri = "https://jurassic-cards.herokuapp.com/account/login";
+        string uri = API_URI + "account/login";
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
 

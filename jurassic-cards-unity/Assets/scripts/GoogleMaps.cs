@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class GoogleMaps : MonoBehaviour
 {
+    string API_URI = "https://jurassic-cards.herokuapp.com/";
+    
     public RawImage img;
     public Text errortext;
     private string url;

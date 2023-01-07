@@ -7,6 +7,8 @@ using System;
 
 public class QRcodes : MonoBehaviour
 {
+    string API_URI = "https://jurassic-cards.herokuapp.com/";
+
     // Start is called before the first frame update
     public Text text;
     private int cardIdQRcode = -1;
@@ -151,7 +153,7 @@ public class QRcodes : MonoBehaviour
             card.image = "replaceWithPlesiossaurosImageFromUnityAssets";
         }
 
-        string uri = "http://127.0.0.1:5000/cards/scan/" + PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString();
+        string uri = API_URI + "cards/scan/" + PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString();
         
         // Create JSON from class
         string json = JsonUtility.ToJson(card);

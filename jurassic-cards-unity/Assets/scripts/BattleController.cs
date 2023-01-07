@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class BattleController : MonoBehaviour
 {
+    string API_URI = "https://jurassic-cards.herokuapp.com/";
+
     List<GameObject> menuNavigation = new List<GameObject>();
     bool flashModeActivated = false;
     [SerializeField] private Text flashModeTextOn;

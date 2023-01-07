@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class RecoverPassController : MonoBehaviour
 {
+    string API_URI = "https://jurassic-cards.herokuapp.com/";
+    
     // Start is called before the first frame update
 
     public class User

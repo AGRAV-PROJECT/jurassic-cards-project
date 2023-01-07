@@ -7,6 +7,8 @@ using UnityEngine.Localization.Settings;
 
 public class LandingPageController : MonoBehaviour
 {
+    string API_URI = "https://jurassic-cards.herokuapp.com/";
+    
     string currentUserName = "";
 
     // Check if there is a signed in user. If so, he should be redirected to the home page

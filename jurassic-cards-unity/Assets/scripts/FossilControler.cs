@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class FossilController : MonoBehaviour
 {
-
+    string API_URI = "https://jurassic-cards.herokuapp.com/";
 
     // Update is called once per frame
     void Update()
@@ -65,7 +65,7 @@ public class FossilController : MonoBehaviour
         int iD = 1; //Get from the fossil selected 
 
         // Call Get Fossil Info Endpoint
-        string uri = "http://127.0.0.1:5000/fossil/check/" + iD;
+        string uri = API_URI + "fossil/check/" + iD;
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
 
@@ -114,7 +114,7 @@ public class FossilController : MonoBehaviour
         int userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
 
         // Call Get Fossil Info Endpoint
-        string uri = "http://127.0.0.1:5000/fossil/check?userID=" + userID;
+        string uri = API_URI + "fossil/check?userID=" + userID;
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
 
@@ -179,7 +179,7 @@ public class FossilController : MonoBehaviour
 
 
         // Call Add Fossil Endpoint
-        string uri = "http://127.0.0.1:5000/fossil/add?userID=" + userID;
+        string uri = API_URI + "fossil/add?userID=" + userID;
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
 
@@ -231,7 +231,7 @@ public class FossilController : MonoBehaviour
         int fossilID = 1; // REPLACE with the id of the fossil that the player chooses to update
 
         // Call Update Fossil Endpoint
-        string uri = "http://127.0.0.1:5000/fossil/plant?iD=" + fossilID;
+        string uri = API_URI + "fossil/plant?iD=" + fossilID;
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
 
@@ -279,7 +279,7 @@ public class FossilController : MonoBehaviour
 
 
         // Call Delete Fossil Endpoint
-        string uri = "http://127.0.0.1:5000/fossil/discard?fossilID=" + fossilID;
+        string uri = API_URI + "fossil/discard?fossilID=" + fossilID;
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
             // Request and wait for the desired page.

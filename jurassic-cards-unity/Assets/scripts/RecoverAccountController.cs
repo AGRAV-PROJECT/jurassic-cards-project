@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class RecoverAccountController : MonoBehaviour
 {
+    string API_URI = "https://jurassic-cards.herokuapp.com/";
+    
     //Go to Recover pass page
 
     public class User

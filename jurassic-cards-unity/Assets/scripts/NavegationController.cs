@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class NavegationController : MonoBehaviour
 {
+    string API_URI = "https://jurassic-cards.herokuapp.com/";
+    
     // Start is called before the first frame update
     void Start()
     {

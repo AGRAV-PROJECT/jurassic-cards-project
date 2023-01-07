@@ -6,6 +6,8 @@ using UnityEngine.Networking;
 
 public class CreateProfileController : MonoBehaviour
 {
+    string API_URI = "https://jurassic-cards.herokuapp.com/";
+
     // Current user id
     string currentUserName = "";
 
@@ -40,7 +42,7 @@ public class CreateProfileController : MonoBehaviour
             yield break;
         }
         // Get userName
-        string uri = "http://127.0.0.1:5000/account/getCurrentUserName/" + PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString();
+        string uri = API_URI + "account/getCurrentUserName/" + PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString();
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
             // Request and wait for the desired page.

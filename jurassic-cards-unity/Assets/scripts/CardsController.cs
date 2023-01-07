@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CardsController : MonoBehaviour
 {
-
+    string API_URI = "https://jurassic-cards.herokuapp.com/";
 
     // Update is called once per frame
     void Update()
@@ -69,7 +69,7 @@ public class CardsController : MonoBehaviour
         int userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
 
         // Call Get Cards Endpoint
-        string uri = "http://127.0.0.1:5000/cards/collection/" + userID;
+        string uri = API_URI = "cards/collection/" + userID;
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
             // Request and wait for the desired page.
@@ -138,7 +138,7 @@ public class CardsController : MonoBehaviour
 
         /* 
                 // Call Scan Card Endpoint
-                string uri = "http://127.0.0.1:5000/cards/scan/" + userID;
+                string uri = API_URL + "cards/scan/" + userID;
                 using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
                 {
 
@@ -195,7 +195,7 @@ public class CardsController : MonoBehaviour
         int cardID = 3; // Get the id of the card chosen by the player
 
         // Call Evolve Card Endpoint /PUT
-        string uri = "http://127.0.0.1:5000/cards/evolve?cardID=" + cardID;
+        string uri = API_URI + "cards/evolve?cardID=" + cardID;
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
             // Request and wait for the desired page.
@@ -246,7 +246,7 @@ public class CardsController : MonoBehaviour
 
 
         // Call Get Cards info Endpoint
-        string uri = "http://127.0.0.1:5000/cards/check/" + cardID;
+        string uri = API_URI + "cards/check/" + cardID;
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
 
@@ -313,7 +313,7 @@ public class CardsController : MonoBehaviour
 
 
         // Call Get Fav Cards Endpoint
-        string uri = "http://127.0.0.1:5000/cards/collection/favourite/" + userID;
+        string uri = API_URI + "cards/collection/favourite/" + userID;
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
 
@@ -381,7 +381,7 @@ public class CardsController : MonoBehaviour
 
 
         // Call Delete Card Endpoint
-        string uri = "http://127.0.0.1:5000/cards/delete?cardID=" + cardID;
+        string uri = API_URI + "cards/delete?cardID=" + cardID;
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
 

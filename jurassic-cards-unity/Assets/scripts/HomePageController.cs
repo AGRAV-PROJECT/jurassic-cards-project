@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class HomePageController : MonoBehaviour
 {
+    string API_URI = "https://jurassic-cards.herokuapp.com/";
+
     List<GameObject> menuNavigation = new List<GameObject>();
     public InputField deleteAccountPasswordTextField;
     public GameObject scanCardMenu;
@@ -124,7 +126,7 @@ public class HomePageController : MonoBehaviour
             string json = JsonUtility.ToJson(user);
 
             // Create web request
-            var request = new UnityWebRequest("http://127.0.0.1:5000/account/delete", "DELETE"); // TODO: Deploy API and change request URI accordingly
+            var request = new UnityWebRequest(API_URI + "account/delete", "DELETE"); // TODO: Deploy API and change request URI accordingly
 
             // Encode JSON to send in the request and change content type on request header accordingly
             byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
