@@ -190,6 +190,10 @@ MonoBehaviour:
       so in that region other players can only find that type of dinosaur"
     m_Metadata:
       m_Items: []
+  - m_Id: 1498062346387456
+    m_Localized: "Submeter Localiza\xE7\xE3o Falsa"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

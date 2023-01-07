@@ -115,6 +115,10 @@ MonoBehaviour:
     m_Key: rulesText
     m_Metadata:
       m_Items: []
+  - m_Id: 1498062346387456
+    m_Key: submitFakeLocation
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
