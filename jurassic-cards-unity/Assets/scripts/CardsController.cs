@@ -23,7 +23,7 @@ public class CardsController : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(8);
+            //SceneManager.LoadScene(8);
         }
     }
 
@@ -54,24 +54,22 @@ public class CardsController : MonoBehaviour
     // Call Get Cards IEnumerator
     public void GetCards()
     {
+        Debug.Log("Get all cards");
         StartCoroutine(GetCardsCoroutine());
     }
 
     // Get Cards logic
     IEnumerator GetCardsCoroutine()
     {
-        // Get text input fields
-        /*  string email = emailGameObject.text.ToString();
-         string password = passwordGameObject.text.ToString();
-  */
-
         //Get UserID
         int userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
+        Debug.Log("Getting all the cards from user " + userID.ToString());
 
         // Call Get Cards Endpoint
-        string uri = API_URI = "cards/collection/" + userID;
+        string uri = "https://jurassic-cards.herokuapp.com/cards/collection/30"; //TODO REPLACE USER ID 30
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
+            Debug.Log("Getting all cards!");
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
 
@@ -95,6 +93,7 @@ public class CardsController : MonoBehaviour
                     webRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
+                    Debug.Log("RESPONSEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE Got all cards!");
                     Debug.Log(webRequest.downloadHandler.text);
                     webRequest.Dispose();
                     break;
@@ -103,15 +102,15 @@ public class CardsController : MonoBehaviour
     }
 
     // Call Scan Card IEnumerator
-    public void ScanCard(string json)
-    {
-        Debug.Log("JSON QR CODE: \n" + json);
-
-        StartCoroutine(ScanCardCoroutine(json)); // erro - Null Exception
-    }
+    //public void ScanCard(string json)
+    //{
+    //    Debug.Log("JSON QR CODE: \n" + json);
+    //
+    //    StartCoroutine(ScanCardCoroutine(json)); // erro - Null Exception
+    //}
 
     // Scan Card
-    public IEnumerator ScanCardCoroutine(string json)
+    /* public IEnumerator ScanCardCoroutine(string json)
     {
 
         //Get UserID
@@ -121,7 +120,7 @@ public class CardsController : MonoBehaviour
         yield return 0; //------------------ APAGAR PÓS TESTE
 
         // Create card class
-        /* var card = new Card();
+        var card = new Card();
         card.cardID = cardID;
         card.cardDescription = cardDescription;
         card.combatPoints = combatPoints;
@@ -134,9 +133,9 @@ public class CardsController : MonoBehaviour
         card.ability3 = ability3;
         card.ownDate = ownDate;
         card.image = image;
- */
 
-        /* 
+
+        
                 // Call Scan Card Endpoint
                 string uri = API_URL + "cards/scan/" + userID;
                 using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
@@ -177,8 +176,8 @@ public class CardsController : MonoBehaviour
                             webRequest.Dispose();
                             break;
                     }
-                } */
-    }
+                } 
+    }*/
 
     // Call Evolve Card IEnumerator
     public void EvolveCard()

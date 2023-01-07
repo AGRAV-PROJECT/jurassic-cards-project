@@ -44,10 +44,10 @@ public class GoogleMaps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("fake loc: " + latitudeFakeLocationText.text + ", " + longitudeFakeLocationText.text);
+        //Debug.Log("fake loc: " + latitudeFakeLocationText.text + ", " + longitudeFakeLocationText.text);
         string latTeste3 = "4.4";
 
-        Debug.Log("fake location: " + latTeste3);
+        //Debug.Log("fake location: " + latTeste3);
 
         if (timerIsRunning)
         {
@@ -78,19 +78,19 @@ public class GoogleMaps : MonoBehaviour
     {
         isClickedInsertFossil = true;
         buttonPlantFossil.gameObject.SetActive(true);
-        Debug.Log("aqui");
+        //Debug.Log("aqui");
     }
 
     public void OpenFakeLocationPanel()
     {
         fakeLocationPanel.SetActive(true);
-        Debug.Log("aqui");
+        //Debug.Log("aqui");
     }
 
     public void SubmitFakeLocationPanel()
     {
         enableFakeLocation = true;
-        Debug.Log("submit location");
+        //Debug.Log("submit location");
         fakeLocationPanel.SetActive(false);
         offFakeLocation.gameObject.SetActive(true);
     }
@@ -138,7 +138,7 @@ public class GoogleMaps : MonoBehaviour
             if (index >= 0)
             {
                 url = url.Insert(index, "&markers=color:blue%7Clabel:F%7C" + fossillong.text + "," + fossillat.text + "&key=AIzaSyA1-laJALAbLoiSNXQ7ZVgMS1PpJ297HJw");
-                Debug.Log("url3: " + url);
+                //Debug.Log("url3: " + url);
                 isClickedInsertFossil = false;
                 insertFosilPanel.SetActive(false);
             }
@@ -171,11 +171,11 @@ public class GoogleMaps : MonoBehaviour
 
         if (!Input.location.isEnabledByUser)
         {
-            Debug.Log("location is not Enabled By User");
+            //Debug.Log("location is not Enabled By User");
             errortext.text = "location is not Enabled By User";
 
             //start map with default coordinates
-            Debug.Log("start map with default coordinates");
+            //Debug.Log("start map with default coordinates");
             StartCoroutine(Map());
             yield break;
         }
@@ -194,7 +194,7 @@ public class GoogleMaps : MonoBehaviour
         //service didnt init at 20s
         if(maxWait < 1)
         {
-            Debug.Log("erro maxWaint < 1");
+            //Debug.Log("erro maxWaint < 1");
             errortext.text = "erro maxWaint < 1";
             yield break;
         }
@@ -202,17 +202,17 @@ public class GoogleMaps : MonoBehaviour
         //conection failed
         if(Input.location.status == LocationServiceStatus.Failed)
         {
-            Debug.Log("unnable to determine device location");
+            //Debug.Log("unnable to determine device location");
             errortext.text = "unnable to determine device location";
 
             //start map with default coordinates
-            Debug.Log("start map with default coordinates");
+            //Debug.Log("start map with default coordinates");
             StartCoroutine(Map());
             yield break;
         }
         else
         {
-            Debug.Log("running");
+            //Debug.Log("running");
             InvokeRepeating("UpdateGPSData", 0.5f, 1f);
             //access granted
         }
@@ -222,20 +222,20 @@ public class GoogleMaps : MonoBehaviour
     {
         if(Input.location.status == LocationServiceStatus.Running)
         {
-            Debug.Log("running");
+            //Debug.Log("running");
             lon = Input.location.lastData.longitude;
             lat = Input.location.lastData.latitude;
 
             errortext.text = "lon: " + lon + ", lat: " + lat;
 
             //start map with the user coordinates
-            Debug.Log("start map with user coordinates");
+            //Debug.Log("start map with user coordinates");
             StartCoroutine(Map());
         }
 
         else
         {
-            Debug.Log("stopped");
+            //Debug.Log("stopped");
         }
     }
 }

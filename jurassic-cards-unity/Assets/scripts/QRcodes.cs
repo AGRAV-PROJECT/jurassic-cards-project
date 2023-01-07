@@ -228,7 +228,7 @@ public class QRcodes : MonoBehaviour
         //other qr codes...
         else
         {
-            Debug.Log("qr code not found");
+            //Debug.Log("qr code not found");
         }
     }
     public void CallScanMethod(QRcode qrcode)
