@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,10 @@ public class GoogleMaps : MonoBehaviour
     private string url;
     private bool isClickedInsertFossil = false;
     public Button buttonPlantFossil, buttonPlantFossilSubmit, quitButton;
+    public Button openFakeLocationPanelButton, submitFakeLocationButton, offFakeLocation;
+    public GameObject fakeLocationPanel, submitFakeLocation;
+    public bool enableFakeLocation = false;
+    public Text latitudeFakeLocationText, longitudeFakeLocationText;
     public GameObject insertFosilPanel;
     public Text fossillong;
     public Text fossillat;
@@ -37,6 +42,10 @@ public class GoogleMaps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("fake loc: " + latitudeFakeLocationText.text + ", " + longitudeFakeLocationText.text);
+        string latTeste3 = "4.4";
+
+        Debug.Log("fake location: " + latTeste3);
 
         if (timerIsRunning)
         {
@@ -57,6 +66,9 @@ public class GoogleMaps : MonoBehaviour
         buttonPlantFossilSubmit.onClick.AddListener(delegate { InsertFossilClick(); });
         buttonPlantFossil.onClick.AddListener(delegate { OpenPanelAddFossil(); });
         quitButton.onClick.AddListener(delegate { ClosePanel(); });
+        openFakeLocationPanelButton.onClick.AddListener(delegate { OpenFakeLocationPanel(); });
+        submitFakeLocationButton.onClick.AddListener(delegate { SubmitFakeLocationPanel(); });
+        offFakeLocation.onClick.AddListener(delegate { OffFakeLocation(); });
 
     }
 
@@ -67,6 +79,25 @@ public class GoogleMaps : MonoBehaviour
         Debug.Log("aqui");
     }
 
+    public void OpenFakeLocationPanel()
+    {
+        fakeLocationPanel.SetActive(true);
+        Debug.Log("aqui");
+    }
+
+    public void SubmitFakeLocationPanel()
+    {
+        enableFakeLocation = true;
+        Debug.Log("submit location");
+        fakeLocationPanel.SetActive(false);
+        offFakeLocation.gameObject.SetActive(true);
+    }
+    public void OffFakeLocation()
+    {
+        enableFakeLocation = false;
+        offFakeLocation.gameObject.SetActive(false);
+        fakeLocationPanel.SetActive(false);
+    }
     public void ClosePanel()
     {
         insertFosilPanel.SetActive(false);
@@ -81,8 +112,23 @@ public class GoogleMaps : MonoBehaviour
         //"&zoom=" + "10" + "&size=" + "500" + "x" + "500" + "&scale=" + "4" + "&maptype=" + "roadmap" +
         //"&markers=color:green%7Clabel:D%7C" + "41.18089601323396" + "," + "-8.605617846739788" + "&key=AIzaSyA1-laJALAbLoiSNXQ7ZVgMS1PpJ297HJw";
 
-        url = "https://maps.googleapis.com/maps/api/staticmap?center=" + lat + "," + lon + "&zoom=" + zoom + "&size=" + width + "x" + height + "&scale=" + scale + "&maptype=roadmap&style=element:geometry%7Ccolor:0x1d2c4d&style=element:labels.text.fill%7Ccolor:0x8ec3b9&style=element:labels.text.stroke%7Ccolor:0x1a3646&style=feature:administrative.country%7Celement:geometry.stroke%7Ccolor:0x4b6878&style=feature:administrative.land_parcel%7Celement:labels.text.fill%7Ccolor:0x64779e&style=feature:administrative.province%7Celement:geometry.stroke%7Ccolor:0x4b6878&style=feature:landscape.man_made%7Celement:geometry.stroke%7Ccolor:0x334e87&style=feature:landscape.natural%7Celement:geometry%7Ccolor:0x023e58&style=feature:poi%7Celement:geometry%7Ccolor:0x283d6a&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x6f9ba5&style=feature:poi%7Celement:labels.text.stroke%7Ccolor:0x1d2c4d&style=feature:poi.park%7Celement:geometry.fill%7Ccolor:0x023e58&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x3C7680&style=feature:road%7Celement:geometry%7Ccolor:0x304a7d&style=feature:road%7Celement:labels.text.fill%7Ccolor:0x98a5be&style=feature:road%7Celement:labels.text.stroke%7Ccolor:0x1d2c4d&style=feature:road.highway%7Celement:geometry%7Ccolor:0x2c6675&style=feature:road.highway%7Celement:geometry.stroke%7Ccolor:0x255763&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0xb0d5ce&style=feature:road.highway%7Celement:labels.text.stroke%7Ccolor:0x023e58&style=feature:transit%7Celement:labels.text.fill%7Ccolor:0x98a5be&style=feature:transit%7Celement:labels.text.stroke%7Ccolor:0x1d2c4d&style=feature:transit.line%7Celement:geometry.fill%7Ccolor:0x283d6a&style=feature:transit.station%7Celement:geometry%7Ccolor:0x3a4762&style=feature:water%7Celement:geometry%7Ccolor:0x0e1626&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x4e6d70&size=480x360&key=AIzaSyA1-laJALAbLoiSNXQ7ZVgMS1PpJ297HJw&markers=color:green%7Clabel:D%7C41.18089601323396,-8.605617846739788&key=AIzaSyA1-laJALAbLoiSNXQ7ZVgMS1PpJ297HJw";
+        /**
+        if(enableFakeLocation)
+        {
+            lat = double.Parse(latitudeFakeLocationText.text);
+            lon = double.Parse(longitudeFakeLocationText.text);
+            Debug.Log("ativar fake loc");
+        }
+        */
+        if (enableFakeLocation)
+        {
+            url = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitudeFakeLocationText.text + "," + longitudeFakeLocationText.text + "&zoom=" + zoom + "&size=" + width + "x" + height + "&scale=" + scale + "&maptype=roadmap&style=element:geometry%7Ccolor:0x1d2c4d&style=element:labels.text.fill%7Ccolor:0x8ec3b9&style=element:labels.text.stroke%7Ccolor:0x1a3646&style=feature:administrative.country%7Celement:geometry.stroke%7Ccolor:0x4b6878&style=feature:administrative.land_parcel%7Celement:labels.text.fill%7Ccolor:0x64779e&style=feature:administrative.province%7Celement:geometry.stroke%7Ccolor:0x4b6878&style=feature:landscape.man_made%7Celement:geometry.stroke%7Ccolor:0x334e87&style=feature:landscape.natural%7Celement:geometry%7Ccolor:0x023e58&style=feature:poi%7Celement:geometry%7Ccolor:0x283d6a&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x6f9ba5&style=feature:poi%7Celement:labels.text.stroke%7Ccolor:0x1d2c4d&style=feature:poi.park%7Celement:geometry.fill%7Ccolor:0x023e58&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x3C7680&style=feature:road%7Celement:geometry%7Ccolor:0x304a7d&style=feature:road%7Celement:labels.text.fill%7Ccolor:0x98a5be&style=feature:road%7Celement:labels.text.stroke%7Ccolor:0x1d2c4d&style=feature:road.highway%7Celement:geometry%7Ccolor:0x2c6675&style=feature:road.highway%7Celement:geometry.stroke%7Ccolor:0x255763&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0xb0d5ce&style=feature:road.highway%7Celement:labels.text.stroke%7Ccolor:0x023e58&style=feature:transit%7Celement:labels.text.fill%7Ccolor:0x98a5be&style=feature:transit%7Celement:labels.text.stroke%7Ccolor:0x1d2c4d&style=feature:transit.line%7Celement:geometry.fill%7Ccolor:0x283d6a&style=feature:transit.station%7Celement:geometry%7Ccolor:0x3a4762&style=feature:water%7Celement:geometry%7Ccolor:0x0e1626&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x4e6d70&size=480x360&key=AIzaSyA1-laJALAbLoiSNXQ7ZVgMS1PpJ297HJw&markers=color:green%7Clabel:D%7C41.18089601323396,-8.605617846739788&key=AIzaSyA1-laJALAbLoiSNXQ7ZVgMS1PpJ297HJw";
 
+        }
+        else
+        {
+            url = "https://maps.googleapis.com/maps/api/staticmap?center=" + lat + "," + lon + "&zoom=" + zoom + "&size=" + width + "x" + height + "&scale=" + scale + "&maptype=roadmap&style=element:geometry%7Ccolor:0x1d2c4d&style=element:labels.text.fill%7Ccolor:0x8ec3b9&style=element:labels.text.stroke%7Ccolor:0x1a3646&style=feature:administrative.country%7Celement:geometry.stroke%7Ccolor:0x4b6878&style=feature:administrative.land_parcel%7Celement:labels.text.fill%7Ccolor:0x64779e&style=feature:administrative.province%7Celement:geometry.stroke%7Ccolor:0x4b6878&style=feature:landscape.man_made%7Celement:geometry.stroke%7Ccolor:0x334e87&style=feature:landscape.natural%7Celement:geometry%7Ccolor:0x023e58&style=feature:poi%7Celement:geometry%7Ccolor:0x283d6a&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x6f9ba5&style=feature:poi%7Celement:labels.text.stroke%7Ccolor:0x1d2c4d&style=feature:poi.park%7Celement:geometry.fill%7Ccolor:0x023e58&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x3C7680&style=feature:road%7Celement:geometry%7Ccolor:0x304a7d&style=feature:road%7Celement:labels.text.fill%7Ccolor:0x98a5be&style=feature:road%7Celement:labels.text.stroke%7Ccolor:0x1d2c4d&style=feature:road.highway%7Celement:geometry%7Ccolor:0x2c6675&style=feature:road.highway%7Celement:geometry.stroke%7Ccolor:0x255763&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0xb0d5ce&style=feature:road.highway%7Celement:labels.text.stroke%7Ccolor:0x023e58&style=feature:transit%7Celement:labels.text.fill%7Ccolor:0x98a5be&style=feature:transit%7Celement:labels.text.stroke%7Ccolor:0x1d2c4d&style=feature:transit.line%7Celement:geometry.fill%7Ccolor:0x283d6a&style=feature:transit.station%7Celement:geometry%7Ccolor:0x3a4762&style=feature:water%7Celement:geometry%7Ccolor:0x0e1626&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x4e6d70&size=480x360&key=AIzaSyA1-laJALAbLoiSNXQ7ZVgMS1PpJ297HJw&markers=color:green%7Clabel:D%7C41.18089601323396,-8.605617846739788&key=AIzaSyA1-laJALAbLoiSNXQ7ZVgMS1PpJ297HJw";
+        }
 
         var index = url.IndexOf("&zoom=");
         if(isClickedInsertFossil)
