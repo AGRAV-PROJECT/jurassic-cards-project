@@ -118,7 +118,7 @@ public class QRcodes : MonoBehaviour
             card.ability2 = "Scratch";
             card.ability3 = "Fear";
             card.ownedSince = "test";
-            card.image = "replaceWithPlesiossaurosImageFromUnityAssets";
+            card.image = "replaceWithSpinosaurosImageFromUnityAssets";
         }
         if(tempCardID == 15)
         {
@@ -134,7 +134,7 @@ public class QRcodes : MonoBehaviour
             card.ability2 = "Stomp";
             card.ability3 = "Fear";
             card.ownedSince = "test";
-            card.image = "replaceWithPlesiossaurosImageFromUnityAssets";
+            card.image = "replaceWithTRexImageFromUnityAssets";
         }
         if(tempCardID == 16)
         {
@@ -150,7 +150,7 @@ public class QRcodes : MonoBehaviour
             card.ability2 = "Protection";
             card.ability3 = "Charge";
             card.ownedSince = "test";
-            card.image = "replaceWithPlesiossaurosImageFromUnityAssets";
+            card.image = "replaceWithTriceratopsImageFromUnityAssets";
         }
 
         string uri = API_URI + "cards/scan/" + PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString();
@@ -280,7 +280,7 @@ public class QRcodes : MonoBehaviour
         qrcode.ability2 = "Scratch";
         qrcode.ability3 = "Fear";
         qrcode.ownedSince = DateTime.Today;
-        qrcode.image = "replaceWithPlesiossaurosImageFromUnityAssets";
+        qrcode.image = "replaceWithSpinosaurosImageFromUnityAssets";
         qrcode.hasBeenRedeemed = false;
 
         CallScanMethod(qrcode);
@@ -302,7 +302,7 @@ public class QRcodes : MonoBehaviour
         qrcode.ability2 = "Stomp";
         qrcode.ability3 = "Fear";
         qrcode.ownedSince = DateTime.Today;
-        qrcode.image = "replaceWithPlesiossaurosImageFromUnityAssets";
+        qrcode.image = "replaceWithTRexImageFromUnityAssets";
         qrcode.hasBeenRedeemed = false;
 
         CallScanMethod(qrcode);
@@ -324,7 +324,7 @@ public class QRcodes : MonoBehaviour
         qrcode.ability2 = "Protection";
         qrcode.ability3 = "Charge";
         qrcode.ownedSince = DateTime.Today;
-        qrcode.image = "replaceWithPlesiossaurosImageFromUnityAssets";
+        qrcode.image = "replaceWithTriceratopsImageFromUnityAssets";
         qrcode.hasBeenRedeemed = false;
 
         CallScanMethod(qrcode);

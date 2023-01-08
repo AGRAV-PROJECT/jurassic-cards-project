@@ -1,12 +1,20 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
 public class CardsController : MonoBehaviour
 {
     string API_URI = "https://jurassic-cards.herokuapp.com/";
+    GameObject cardsInventoryScroller;
+    public Transform content;
+    public GameObject cardPrefab;
+    public Sprite plesioSprite;
+    public Sprite trxSprite;
+    public RectTransform rtTransform;
 
     // Update is called once per frame
     void Update()
@@ -54,22 +62,37 @@ public class CardsController : MonoBehaviour
     // Call Get Cards IEnumerator
     public void GetCards()
     {
-        Debug.Log("Get all cards");
         StartCoroutine(GetCardsCoroutine());
+    }
+
+    // Cards list
+    [Serializable]
+    public class JsonCardList
+    {
+        public List<JsonCard> cardList;
+    }
+
+    // JSON Card class
+    [Serializable]
+    public class JsonCard
+    {
+        public int cardID;
+        public string image;
     }
 
     // Get Cards logic
     IEnumerator GetCardsCoroutine()
-    {
-        //Get UserID
+    {   
+        // Initiate JSON string
+        string requestResult = "";
+
+        // Get UserID
         int userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
-        Debug.Log("Getting all the cards from user " + userID.ToString());
 
         // Call Get Cards Endpoint
-        string uri = "https://jurassic-cards.herokuapp.com/cards/collection/30"; //TODO REPLACE USER ID 30
+        string uri = "https://jurassic-cards.herokuapp.com/cards/collection/" + userID.ToString();
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
-            Debug.Log("Getting all cards!");
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
 
@@ -93,12 +116,57 @@ public class CardsController : MonoBehaviour
                     webRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
-                    Debug.Log("RESPONSEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE Got all cards!");
                     Debug.Log(webRequest.downloadHandler.text);
+                    requestResult = webRequest.downloadHandler.text;
                     webRequest.Dispose();
                     break;
             }
         }
+
+        // Take care of JSON
+        JsonCardList CardsList = new JsonCardList();
+        CardsList = JsonUtility.FromJson<JsonCardList>("{\"cardList\":" + requestResult.ToString() + "}");
+
+        foreach(JsonCard item in CardsList.cardList)
+        {
+            if(item.image.Contains("Plesiossauros"))
+            {
+                GameObject obj = Instantiate(cardPrefab, content);
+                var itemName = obj.transform.Find("CardText").GetComponent<Text>();
+                var itemIcon = obj.transform.Find("CardImage").GetComponent<Image>();
+
+                itemName.text = "Plesiosauro";
+                itemIcon.sprite = plesioSprite;
+            }
+            else if(item.image.Contains("Triceratops"))
+            {
+        
+            }
+            else if(item.image.Contains("TRex"))
+            {
+                GameObject obj = Instantiate(cardPrefab, content);
+                var itemName = obj.transform.Find("CardText").GetComponent<Text>();
+                var itemIcon = obj.transform.Find("CardImage").GetComponent<Image>();
+
+                itemName.text = "T-Rex";
+                itemIcon.sprite = trxSprite;
+            }
+            else if(item.image.Contains("Spinosauros"))
+            {
+        
+            }
+        }
+    }
+
+    // Clear scrollview
+    public void DestroyChildren()
+    {   
+
+        while(rtTransform.childCount > 0)
+        {
+            DestroyImmediate(rtTransform.GetChild(0).gameObject);
+        }
+
     }
 
     // Call Scan Card IEnumerator

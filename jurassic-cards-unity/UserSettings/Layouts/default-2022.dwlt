@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 39
+  controlID: 41
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 40
+  controlID: 42
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 41
+  controlID: 43
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -409,7 +409,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 929effff44a1ffff2aa4ffff70a4ffff1ea7ffff62a7ffffa6a7ffffeaa7ffff2ea8ffff72a8fffffaaaffff48abffff8eabffffd2abffffc2b5ffff7ac8ffff7acafffff4ffffff0ed4000090d900005c2e0100be380100403e0100
+      m_ExpandedIDs: e492ffffdeb1ffffacd8ffffbcd8ffffc8d8ffff24fbffffd260000056660000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -691,9 +691,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1902.0525, y: 1058.9753, z: -43.89796}
+    m_Target: {x: 1383.0889, y: 1374.2867, z: -38.347984}
     speed: 2
-    m_Value: {x: 1902.0525, y: 1058.9753, z: -43.89796}
+    m_Value: {x: 1383.0889, y: 1374.2867, z: -38.347984}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -743,9 +743,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1296.4027
+    m_Target: 1691.3175
     speed: 2
-    m_Value: 1296.4027
+    m_Value: 1691.3175
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -875,22 +875,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/scripts
+    - Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/scripts
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\AGRAV\jurassic-cards-project\jurassic-cards-unity
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 64890000
-    m_LastClickedID: 35172
-    m_ExpandedIDs: 0000000054890000
+    m_SelectedIDs: da5c0100
+    m_LastClickedID: 89306
+    m_ExpandedIDs: 000000009e090100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -918,7 +918,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -943,10 +943,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: f43d0100
-    m_LastClickedInstanceID: 81396
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000de0301005e6d0000
+    m_ExpandedInstanceIDs: c6230000de0301005e6d000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
