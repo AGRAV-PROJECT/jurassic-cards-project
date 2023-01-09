@@ -1691,6 +1691,142 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58397809}
   m_CullTransparentMesh: 1
+--- !u!1 &71937538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 71937539}
+  - component: {fileID: 71937542}
+  - component: {fileID: 71937541}
+  - component: {fileID: 71937540}
+  m_Layer: 0
+  m_Name: spinosauros2-cardid18ImageTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &71937539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71937538}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 278665074}
+  m_Father: {fileID: 1880646857}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &71937540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71937538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 1e108ae5f2133934f948edded555f03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 71937542}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: Spinosauros2CardId18
+  mDatasetName: Vuforia/qrCodes.xml
+  mCastedBehaviour: {fileID: 71937542}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &71937541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71937538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatusFilter: 0
+  UsePoseSmoothing: 0
+  AnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 3.3333333
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.3
+      value: 1
+      inSlope: 3.3333333
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  OnTargetFound:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 425510813}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: card18
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTargetLost:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &71937542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71937538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1631628248, guid: 1e108ae5f2133934f948edded555f03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PreviewVisible: 1
+  RuntimeOcclusion: 0
+  mTrackableName: Spinosauros2CardId18
+  mInitializedInEditor: 1
+  mDataSetPath: Vuforia/qrCodes.xml
+  mAspectRatio: 0.94737
+  mImageTargetType: 0
+  mWidth: 0.1
+  mHeight: 0.094737
+  mRuntimeTexture: {fileID: 0}
+  mMotionHint: 1
+  mTrackingOptimization: 0
+  mTrackingOptimizationNeedsUpgrade: 0
+  mPreview: {fileID: 71937540}
 --- !u!1 &75650276
 GameObject:
   m_ObjectHideFlags: 0
@@ -7159,6 +7295,86 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!1001 &278665073
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 71937539}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0923077
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.09230768
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.09230771
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0001373291
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.000012874603
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.117193066
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.117193066
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6973276
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.6973276
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -199.08
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d30d181059dc89449ba1d855c771b15c, type: 2}
+    - target: {fileID: 919132149155446097, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+      propertyPath: m_Name
+      value: Spino_lo
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+--- !u!4 &278665074 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 387df489a5e92544986d36bb9557e9fe, type: 3}
+  m_PrefabInstance: {fileID: 278665073}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &282944070
 GameObject:
   m_ObjectHideFlags: 0
@@ -8574,6 +8790,115 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333317713}
   m_CullTransparentMesh: 1
+--- !u!1001 &336480885
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 2112429430}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.036735535
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.000012874603
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.085070595
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.012183086
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9862382
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.14124066
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 16.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -189.86
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6651988664848822943, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ffd9f5d18661b764d95b629eafaa62e0, type: 2}
+    - target: {fileID: 19299176089665325, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 71f3b785a1901f9498dfc97abcdabb46, type: 2}
+    - target: {fileID: 919132149155446097, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+      propertyPath: m_Name
+      value: Pistosaur animated
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+--- !u!4 &336480886 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+  m_PrefabInstance: {fileID: 336480885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &336480887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8507c6180112fc845aac2b9b6409de0c, type: 3}
+  m_PrefabInstance: {fileID: 336480885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &336480888
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336480887}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1fb99a4bb2ee19a49b9e199b42fe5822, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &336593756
 GameObject:
   m_ObjectHideFlags: 0
@@ -24707,7 +25032,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &918454197
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25213,13 +25538,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: spinosauros-cardid14
+  mTrackableName: SpinosaurosCardId14
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/teste5.xml
-  mAspectRatio: 1.0340899
+  mDataSetPath: Vuforia/qrCodes.xml
+  mAspectRatio: 0.98039
   mImageTargetType: 0
-  mWidth: 0.10000001
-  mHeight: 0.103409
+  mWidth: 0.1
+  mHeight: 0.098039
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
@@ -25239,8 +25564,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 926874745}
   mHiddenRoot: {fileID: 0}
-  mTargetName: spinosauros-cardid14
-  mDatasetName: Vuforia/teste5.xml
+  mTargetName: SpinosaurosCardId14
+  mDatasetName: Vuforia/qrCodes.xml
   mCastedBehaviour: {fileID: 926874745}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -28839,13 +29164,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: trex-cardid15
+  mTrackableName: tRexCardId15
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/teste5.xml
-  mAspectRatio: 0.97508997
+  mDataSetPath: Vuforia/qrCodes.xml
+  mAspectRatio: 0.95913
   mImageTargetType: 0
   mWidth: 0.1
-  mHeight: 0.097509
+  mHeight: 0.095913
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
@@ -28865,8 +29190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1067357786}
   mHiddenRoot: {fileID: 0}
-  mTargetName: trex-cardid15
-  mDatasetName: Vuforia/teste5.xml
+  mTargetName: tRexCardId15
+  mDatasetName: Vuforia/qrCodes.xml
   mCastedBehaviour: {fileID: 1067357786}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -35112,13 +35437,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: plessiosauro-cardid13
+  mTrackableName: plesiosauroCardId13
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/teste5.xml
-  mAspectRatio: 1.0261201
+  mDataSetPath: Vuforia/qrCodes.xml
+  mAspectRatio: 0.98319
   mImageTargetType: 0
-  mWidth: 0.099999994
-  mHeight: 0.102612
+  mWidth: 0.1
+  mHeight: 0.098319
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
@@ -35138,8 +35463,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1322046735}
   mHiddenRoot: {fileID: 0}
-  mTargetName: plessiosauro-cardid13
-  mDatasetName: Vuforia/teste5.xml
+  mTargetName: plesiosauroCardId13
+  mDatasetName: Vuforia/qrCodes.xml
   mCastedBehaviour: {fileID: 1322046735}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
@@ -38376,7 +38701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1446696155
 Transform:
   m_ObjectHideFlags: 0
@@ -50358,6 +50683,8 @@ Transform:
   - {fileID: 926874742}
   - {fileID: 1067357783}
   - {fileID: 2121798217}
+  - {fileID: 2112429430}
+  - {fileID: 71937539}
   m_Father: {fileID: 1446696155}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -56714,6 +57041,142 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!1 &2112429429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2112429430}
+  - component: {fileID: 2112429433}
+  - component: {fileID: 2112429432}
+  - component: {fileID: 2112429431}
+  m_Layer: 0
+  m_Name: plessiosauro2-cardid17ImageTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2112429430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112429429}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 336480886}
+  m_Father: {fileID: 1880646857}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2112429431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112429429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 1e108ae5f2133934f948edded555f03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 2112429433}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: plessiosauro2CardId17
+  mDatasetName: Vuforia/qrCodes.xml
+  mCastedBehaviour: {fileID: 2112429433}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &2112429432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112429429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatusFilter: 0
+  UsePoseSmoothing: 0
+  AnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 3.3333333
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.3
+      value: 1
+      inSlope: 3.3333333
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  OnTargetFound:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 425510813}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: card17
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTargetLost:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2112429433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112429429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1631628248, guid: 1e108ae5f2133934f948edded555f03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PreviewVisible: 1
+  RuntimeOcclusion: 0
+  mTrackableName: plessiosauro2CardId17
+  mInitializedInEditor: 1
+  mDataSetPath: Vuforia/qrCodes.xml
+  mAspectRatio: 0.95081997
+  mImageTargetType: 0
+  mWidth: 0.1
+  mHeight: 0.095082
+  mRuntimeTexture: {fileID: 0}
+  mMotionHint: 1
+  mTrackingOptimization: 0
+  mTrackingOptimizationNeedsUpgrade: 0
+  mPreview: {fileID: 2112429431}
 --- !u!1 &2121798216
 GameObject:
   m_ObjectHideFlags: 0
@@ -56819,13 +57282,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: triceratops-cardid16
+  mTrackableName: triceraptorCardId16
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/teste5.xml
-  mAspectRatio: 0.98529005
+  mDataSetPath: Vuforia/qrCodes.xml
+  mAspectRatio: 0.98300004
   mImageTargetType: 0
   mWidth: 0.1
-  mHeight: 0.098529
+  mHeight: 0.0983
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
@@ -56845,8 +57308,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 2121798220}
   mHiddenRoot: {fileID: 0}
-  mTargetName: triceratops-cardid16
-  mDatasetName: Vuforia/teste5.xml
+  mTargetName: triceraptorCardId16
+  mDatasetName: Vuforia/qrCodes.xml
   mCastedBehaviour: {fileID: 2121798220}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}

@@ -152,6 +152,38 @@ public class QRcodes : MonoBehaviour
             card.ownedSince = "test";
             card.image = "replaceWithTriceratopsImageFromUnityAssets";
         }
+        if (tempCardID == 17)
+        {
+            card.cardID = 17;
+            card.cardName = "Plesiossauros";
+            card.cardDescription = "PlesiossaurosDescription";
+            card.combatPoints = 10;
+            card.cardLevel = 1;
+            card.agility = 10;
+            card.attack = 6;
+            card.health = 7;
+            card.ability1 = "Splash";
+            card.ability2 = "Bite";
+            card.ability3 = "Tsunami";
+            card.ownedSince = "test";
+            card.image = "replaceWithPlesiossaurosImageFromUnityAssets";
+        }
+        if (tempCardID == 18)
+        {
+            card.cardID = 18;
+            card.cardName = "Spinosauros";
+            card.cardDescription = "SpinosaurosDescription";
+            card.combatPoints = 13;
+            card.cardLevel = 1;
+            card.agility = 5;
+            card.attack = 12;
+            card.health = 7;
+            card.ability1 = "Splash";
+            card.ability2 = "Scratch";
+            card.ability3 = "Fear";
+            card.ownedSince = "test";
+            card.image = "replaceWithSpinosaurosImageFromUnityAssets";
+        }
 
         string uri = API_URI + "cards/scan/" + PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString();
         
@@ -225,6 +257,25 @@ public class QRcodes : MonoBehaviour
             CreateJSONforCard16();
             Debug.Log("found qr code 16");
         }
+
+        if (text.text == "card17")
+        {
+            StartCoroutine(AddCard(17));
+            wasScanned = true;
+            cardIdQRcode = 17;
+            CreateJSONforCard17();
+            Debug.Log("found qr code 17");
+        }
+
+        if (text.text == "card18")
+        {
+            StartCoroutine(AddCard(18));
+            wasScanned = true;
+            cardIdQRcode = 18;
+            CreateJSONforCard18();
+            Debug.Log("found qr code 18");
+        }
+
         //other qr codes...
         else
         {
@@ -325,6 +376,50 @@ public class QRcodes : MonoBehaviour
         qrcode.ability3 = "Charge";
         qrcode.ownedSince = DateTime.Today;
         qrcode.image = "replaceWithTriceratopsImageFromUnityAssets";
+        qrcode.hasBeenRedeemed = false;
+
+        CallScanMethod(qrcode);
+    }
+
+    public void CreateJSONforCard17()
+    {
+        var qrcode = new QRcode();
+        qrcode.cardID = 17;
+        qrcode.userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
+        qrcode.name = "Plesiossauros";
+        qrcode.description = "PlesiossaurosDescription";
+        qrcode.combatPoints = 10;
+        qrcode.level = 1;
+        qrcode.agility = 10;
+        qrcode.attack = 6;
+        qrcode.health = 7;
+        qrcode.ability1 = "Splash";
+        qrcode.ability2 = "Bite";
+        qrcode.ability3 = "Tsunami";
+        qrcode.ownedSince = DateTime.Today;
+        qrcode.image = "replaceWithPlesiossaurosImageFromUnityAssets";
+        qrcode.hasBeenRedeemed = false;
+
+        CallScanMethod(qrcode);
+    }
+
+    public void CreateJSONforCard18()
+    {
+        var qrcode = new QRcode();
+        qrcode.cardID = 18;
+        qrcode.userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
+        qrcode.name = "Spinosauros";
+        qrcode.description = "SpinosaurosDescription";
+        qrcode.combatPoints = 13;
+        qrcode.level = 1;
+        qrcode.agility = 5;
+        qrcode.attack = 12;
+        qrcode.health = 7;
+        qrcode.ability1 = "Splash";
+        qrcode.ability2 = "Scratch";
+        qrcode.ability3 = "Fear";
+        qrcode.ownedSince = DateTime.Today;
+        qrcode.image = "replaceWithSpinosaurosImageFromUnityAssets";
         qrcode.hasBeenRedeemed = false;
 
         CallScanMethod(qrcode);

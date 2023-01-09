@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="Spinosauros2CardId18" size="0.100000 0.094737" />
+    <ImageTarget name="plessiosauro2CardId17" size="0.100000 0.095082" />
+    <ImageTarget name="triceraptorCardId16" size="0.100000 0.098300" />
+    <ImageTarget name="tRexCardId15" size="0.100000 0.095913" />
+    <ImageTarget name="SpinosaurosCardId14" size="0.100000 0.098039" />
+    <ImageTarget name="plesiosauroCardId13" size="0.100000 0.098319" />
+  </Tracking>
+</QCARConfig>
