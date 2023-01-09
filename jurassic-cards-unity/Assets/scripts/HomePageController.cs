@@ -18,6 +18,11 @@ public class HomePageController : MonoBehaviour
     public GameObject seniorModeMenu;
     public GameObject fossilInfoPanel;
 
+    public bool CheckIfMenuOpen()
+    {
+        return menuNavigation.Count > 0;
+    }
+
     // User
     public class Fossil
     {

@@ -16,24 +16,6 @@ public class FossilController : MonoBehaviour
     public GoogleMaps googleMaps;
     public int selectedFossilID;
 
-    private float timeRemaining = 5;
-
-    private void Update()
-    {
-        if (timeRemaining > 0)
-        {
-            //if the countdown have yet to reach 0 the timer will continue to countdown
-
-            timeRemaining -= Time.deltaTime;
-        }
-        else
-        {
-            //when the timer reaches 0 the game will look for fossils
-            StartCoroutine(FindFossils());
-            timeRemaining = 5;
-        }
-    }
-
     // Fossil
     public class Fossil
     {
@@ -95,61 +77,6 @@ public class FossilController : MonoBehaviour
         {
             Debug.Log("Fossil planted successfully!");
             request.Dispose();
-        }
-    }
-
-    IEnumerator FindFossils()
-    {
-        //Get UserID
-        int userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
-
-        string requestResult = "";
-
-        // Get coordinates
-        double latitude = googleMaps.lat;
-        double longitude = googleMaps.lon;
-
-        // Create fossil class
-        var fossil = new Fossil();
-        fossil.latitude = latitude;
-        fossil.longitude = longitude;
-
-        // Create JSON from class
-        string json = JsonUtility.ToJson(fossil);
-
-        // Create web request
-        var request = new UnityWebRequest(API_URI + "fossil/find?userID=" + userID, "GET");
-
-        // Encode JSON to send in the request and change content type on request header accordingly
-        byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
-        request.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
-        request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
-        request.SetRequestHeader("Content-Type", "application/json");
-
-        yield return request.SendWebRequest();
-        if (request.result != UnityWebRequest.Result.Success)
-        {
-            Debug.Log(request.error);
-            Debug.Log(request.downloadHandler.text);
-            request.Dispose();
-        }
-        else
-        {
-            request.Dispose();
-
-            // Take care of JSON
-            JsonFossilList FossilList = new JsonFossilList();
-            FossilList = JsonUtility.FromJson<JsonFossilList>("{\"fossilList\":" + requestResult.ToString() + "}");
-
-            if (FossilList.fossilList.Count > 0)
-            {
-                JsonFossil fossilResult = FossilList.fossilList[0];
-                Debug.Log("Fossil found - id: " + fossilResult.id);
-            }
-            else
-            {
-                Debug.Log("No fossils found near player");
-            }
         }
     }
 
