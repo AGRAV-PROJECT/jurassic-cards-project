@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -7,23 +9,28 @@ using UnityEngine.UI;
 public class FossilController : MonoBehaviour
 {
     string API_URI = "https://jurassic-cards.herokuapp.com/";
+    public Transform content;
+    public GameObject fossilPrefab;
+    public Sprite plesioSprite;
+    public Sprite trxSprite;
+    public GoogleMaps googleMaps;
+    public int selectedFossilID;
 
-    // Update is called once per frame
-    void Update()
+    private float timeRemaining = 5;
+
+    private void Update()
     {
-
-    }
-
-    // Check if there is a signed in user. If so, he should be redirected to the home page
-    void Start()
-    {
-        if (PlayerPrefs.GetInt("Current_Logged_UserID", 0) == 0)
+        if (timeRemaining > 0)
         {
-            Debug.Log("No logged in user");
+            //if the countdown have yet to reach 0 the timer will continue to countdown
+
+            timeRemaining -= Time.deltaTime;
         }
         else
         {
-            SceneManager.LoadScene(8);
+            //when the timer reaches 0 the game will look for fossils
+            StartCoroutine(FindFossils());
+            timeRemaining = 5;
         }
     }
 
@@ -49,6 +56,102 @@ public class FossilController : MonoBehaviour
         }
     }
 
+    public void PlantFossil()
+    {
+        StartCoroutine(PlantFossilCoroutine(selectedFossilID));
+    }
+
+    IEnumerator PlantFossilCoroutine(int fossilID)
+    {
+        // Get coordinates
+        double latitude = googleMaps.lat;
+        double longitude = googleMaps.lon;
+
+        // Create fossil class
+        var fossil = new Fossil();
+        fossil.latitude = latitude;
+        fossil.longitude = longitude;
+
+        // Create JSON from class
+        string json = JsonUtility.ToJson(fossil);
+
+        // Create web request
+        var request = new UnityWebRequest(API_URI + "fossil/plant?iD=" + fossilID, "PUT");
+
+        // Encode JSON to send in the request and change content type on request header accordingly
+        byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
+        request.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
+        request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+
+        yield return request.SendWebRequest();
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(request.error);
+            Debug.Log(request.downloadHandler.text);
+            request.Dispose();
+        }
+        else
+        {
+            Debug.Log("Fossil planted successfully!");
+            request.Dispose();
+        }
+    }
+
+    IEnumerator FindFossils()
+    {
+        //Get UserID
+        int userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
+
+        string requestResult = "";
+
+        // Get coordinates
+        double latitude = googleMaps.lat;
+        double longitude = googleMaps.lon;
+
+        // Create fossil class
+        var fossil = new Fossil();
+        fossil.latitude = latitude;
+        fossil.longitude = longitude;
+
+        // Create JSON from class
+        string json = JsonUtility.ToJson(fossil);
+
+        // Create web request
+        var request = new UnityWebRequest(API_URI + "fossil/find?userID=" + userID, "GET");
+
+        // Encode JSON to send in the request and change content type on request header accordingly
+        byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
+        request.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
+        request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+
+        yield return request.SendWebRequest();
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(request.error);
+            Debug.Log(request.downloadHandler.text);
+            request.Dispose();
+        }
+        else
+        {
+            request.Dispose();
+
+            // Take care of JSON
+            JsonFossilList FossilList = new JsonFossilList();
+            FossilList = JsonUtility.FromJson<JsonFossilList>("{\"fossilList\":" + requestResult.ToString() + "}");
+
+            if (FossilList.fossilList.Count > 0)
+            {
+                JsonFossil fossilResult = FossilList.fossilList[0];
+                Debug.Log("Fossil found - id: " + fossilResult.id);
+            }
+            else
+            {
+                Debug.Log("No fossils found near player");
+            }
+        }
+    }
 
     // Call Get Fossil Info IEnumerator
     public void GetFossilInfo()
@@ -59,8 +162,6 @@ public class FossilController : MonoBehaviour
     // Get Fossil Info logic
     IEnumerator GetFossilInfoCoroutine()
     {
-
-
         //Get FossilID
         int iD = 1; //Get from the fossil selected 
 
@@ -100,6 +201,22 @@ public class FossilController : MonoBehaviour
         }
     }
 
+    // Cards list
+    [Serializable]
+    public class JsonFossilList
+    {
+        public List<JsonFossil> fossilList;
+    }
+
+    // JSON Card class
+    [Serializable]
+    public class JsonFossil
+    {
+        public int id;
+        public string name;
+        public string image;
+    }
+
     // Call Get Fossil by Player IEnumerator
     public void GetFossilbyPlayer()
     {
@@ -113,12 +230,12 @@ public class FossilController : MonoBehaviour
         //Get UserID
         int userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
 
+        string requestResult = "";
+
         // Call Get Fossil Info Endpoint
-        string uri = API_URI + "fossil/check?userID=" + userID;
+        string uri = API_URI + "/fossil/collection?userID=" + userID;
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
-
-
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
 
@@ -135,17 +252,75 @@ public class FossilController : MonoBehaviour
                     break;
                 case UnityWebRequest.Result.ProtocolError:
                     Debug.LogError(": HTTP Error: " + webRequest.error);
+                    Debug.Log(webRequest.downloadHandler.text);
                     webRequest.Dispose();
                     break;
                 case UnityWebRequest.Result.Success:
                     Debug.Log(webRequest.downloadHandler.text);
-                    Fossil fossil = JsonUtility.FromJson<Fossil>(webRequest.downloadHandler.text);
-
-                    Debug.Log(fossil.ToString());
+                    requestResult = webRequest.downloadHandler.text;
 
                     webRequest.Dispose();
                     break;
             }
+        }
+
+        // Take care of JSON
+        JsonFossilList FossilList = new JsonFossilList();
+        FossilList = JsonUtility.FromJson<JsonFossilList>("{\"fossilList\":" + requestResult.ToString() + "}");
+
+        foreach (JsonFossil item in FossilList.fossilList)
+        {
+            if (item.image.Contains("Plesiossauros"))
+            {
+                GameObject obj = Instantiate(fossilPrefab, content);
+                var itemName = obj.transform.Find("CardText").GetComponent<Text>();
+                var itemIcon = obj.transform.Find("CardImage").GetComponent<Image>();
+
+                fossilPrefab.GetComponent<FossilPlantSelection>().fossilID = item.id;
+                itemName.text = "Plesiosauro";
+                itemIcon.sprite = plesioSprite;
+            }
+            else if (item.image.Contains("Triceratops"))
+            {
+
+            }
+            else if (item.image.Contains("TRex"))
+            {
+                GameObject obj = Instantiate(fossilPrefab, content);
+                var itemName = obj.transform.Find("CardText").GetComponent<Text>();
+                var itemIcon = obj.transform.Find("CardImage").GetComponent<Image>();
+
+                fossilPrefab.GetComponent<FossilPlantSelection>().fossilID = item.id;
+                itemName.text = "T-Rex";
+                itemIcon.sprite = trxSprite;
+            }
+            else if (item.image.Contains("Spinosauros"))
+            {
+
+            }
+            else
+            {
+                GameObject obj = Instantiate(fossilPrefab, content);
+                var itemName = obj.transform.Find("CardText").GetComponent<Text>();
+                var itemIcon = obj.transform.Find("CardImage").GetComponent<Image>();
+
+                fossilPrefab.GetComponent<FossilPlantSelection>().fossilID = item.id;
+                itemName.text = "Fossil";
+                itemIcon.sprite = trxSprite;
+            }
+        }
+    }
+
+    private void OnEnable()
+    {
+        GetFossilbyPlayer();
+    }
+
+    private void OnDisable()
+    {
+        while (content.childCount > 0)
+        {
+            DestroyImmediate(content.GetChild(0).gameObject);
         }
     }
 

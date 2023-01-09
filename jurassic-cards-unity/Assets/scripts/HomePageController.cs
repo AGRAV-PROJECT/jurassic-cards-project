@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Networking;
@@ -15,6 +16,68 @@ public class HomePageController : MonoBehaviour
     public GameObject scanCardMenu;
     public GameObject settingsMenu;
     public GameObject seniorModeMenu;
+    public GameObject fossilInfoPanel;
+
+    // User
+    public class Fossil
+    {
+        public string name;
+        public string longitude;
+        public string latitude;
+        public string date;
+        public string image;
+        public string description;
+        public string isPlanted;
+    }
+
+    //Go to Create Profile page
+    public void AddFossil()
+    {
+        StartCoroutine(AddFossilCoroutine());
+    }
+
+    IEnumerator AddFossilCoroutine()
+    {
+        string userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString();
+
+        // Create user class
+        var fossil = new Fossil();
+        fossil.name = "T-Rex2";
+        fossil.longitude = "0";
+        fossil.latitude = "0";
+        fossil.date = "0";
+        fossil.image = "T-Rex";
+        fossil.description = "Test";
+        fossil.isPlanted = "0";
+
+        // Create JSON from class
+        string json = JsonUtility.ToJson(fossil);
+
+        Debug.Log(json);
+
+        // Create web request
+        var request = new UnityWebRequest(API_URI + "fossil/add?userID=" + userID, "POST"); // TODO: Deploy API and change request URI accordingly
+
+        // Encode JSON to send in the request and change content type on request header accordingly
+        byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
+        request.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
+        request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+
+        // Make the request and check for its success
+        yield return request.SendWebRequest();
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(request.error);
+            Debug.Log(request.downloadHandler.text);
+            request.Dispose();
+        }
+        else
+        {
+            Debug.Log("Fossil added successfully!");
+            request.Dispose();
+        }
+    }
 
     private void Start()
     {
@@ -62,6 +125,13 @@ public class HomePageController : MonoBehaviour
     {
         scanCardMenu.SetActive(false);
         gameObject.SetActive(true);
+    }
+
+    // Open fossil info
+    public void OpenFossilInfo()
+    {
+        fossilInfoPanel.SetActive(true);
+        menuNavigation.Add(fossilInfoPanel);
     }
 
     // Opens new menu, hiding the one before it

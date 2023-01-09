@@ -65,7 +65,6 @@ public class GoogleMaps : MonoBehaviour
                 timerIsRunning = true;
             }
         }
-        buttonPlantFossilSubmit.onClick.AddListener(delegate { InsertFossilClick(); });
         buttonPlantFossil.onClick.AddListener(delegate { OpenPanelAddFossil(); });
         quitButton.onClick.AddListener(delegate { ClosePanel(); });
         openFakeLocationPanelButton.onClick.AddListener(delegate { OpenFakeLocationPanel(); });
