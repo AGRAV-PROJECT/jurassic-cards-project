@@ -190,6 +190,26 @@ MonoBehaviour:
     m_Localized: Submit Fake Location
     m_Metadata:
       m_Items: []
+  - m_Id: 2525254245285888
+    m_Localized: 'Acquired in:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2525388655951872
+    m_Localized: 'Fossil information:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2526362829193216
+    m_Localized: Fossil Found!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2526448116170752
+    m_Localized: You found a fossil!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2526552906661888
+    m_Localized: Dig
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

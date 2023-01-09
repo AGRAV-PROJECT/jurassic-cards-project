@@ -119,6 +119,26 @@ MonoBehaviour:
     m_Key: submitFakeLocation
     m_Metadata:
       m_Items: []
+  - m_Id: 2525254245285888
+    m_Key: acquiredIn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2525388655951872
+    m_Key: fossilInformation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2526362829193216
+    m_Key: fossilFound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2526448116170752
+    m_Key: fossilFoundDesc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2526552906661888
+    m_Key: dig
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

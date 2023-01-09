@@ -13,7 +13,7 @@ public class GoogleMaps : MonoBehaviour
     public Text errortext;
     private string url;
     private bool isClickedInsertFossil = false;
-    public Button buttonPlantFossil, buttonPlantFossilSubmit, quitButton;
+    public Button buttonPlantFossilSubmit, quitButton;
     public Button openFakeLocationPanelButton, submitFakeLocationButton, offFakeLocation;
     public GameObject fakeLocationPanel, submitFakeLocation;
     public bool enableFakeLocation = false;
@@ -65,7 +65,6 @@ public class GoogleMaps : MonoBehaviour
                 timerIsRunning = true;
             }
         }
-        buttonPlantFossil.onClick.AddListener(delegate { OpenPanelAddFossil(); });
         quitButton.onClick.AddListener(delegate { ClosePanel(); });
         openFakeLocationPanelButton.onClick.AddListener(delegate { OpenFakeLocationPanel(); });
         submitFakeLocationButton.onClick.AddListener(delegate { SubmitFakeLocationPanel(); });
@@ -76,7 +75,6 @@ public class GoogleMaps : MonoBehaviour
     public void InsertFossilClick()
     {
         isClickedInsertFossil = true;
-        buttonPlantFossil.gameObject.SetActive(true);
         //Debug.Log("aqui");
     }
 
@@ -157,7 +155,6 @@ public class GoogleMaps : MonoBehaviour
     public void OpenPanelAddFossil()
     {
         insertFosilPanel.SetActive(true);
-        buttonPlantFossil.gameObject.SetActive(false);
     }
     IEnumerator GPSUserLocation()
     {

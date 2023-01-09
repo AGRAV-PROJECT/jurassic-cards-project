@@ -14,7 +14,32 @@ public class FossilController : MonoBehaviour
     public Sprite plesioSprite;
     public Sprite trxSprite;
     public GoogleMaps googleMaps;
+    public GameObject fossilPlantPanel;
     public int selectedFossilID;
+
+    private void OnEnable()
+    {
+        GetFossilbyPlayer();
+    }
+
+    private void OnDisable()
+    {
+        ClearFossilInventory();
+    }
+
+    public void RefreshFossilInventory()
+    {
+        ClearFossilInventory();
+        GetFossilbyPlayer();
+    }
+
+    public void ClearFossilInventory()
+    {
+        while (content.childCount > 0)
+        {
+            DestroyImmediate(content.GetChild(0).gameObject);
+        }
+    }
 
     // Fossil
     public class Fossil
@@ -40,6 +65,8 @@ public class FossilController : MonoBehaviour
 
     public void PlantFossil()
     {
+        fossilPlantPanel.SetActive(false);
+        ClearFossilInventory();
         StartCoroutine(PlantFossilCoroutine(selectedFossilID));
     }
 
@@ -78,6 +105,7 @@ public class FossilController : MonoBehaviour
             Debug.Log("Fossil planted successfully!");
             request.Dispose();
         }
+        RefreshFossilInventory();
     }
 
     // Call Get Fossil Info IEnumerator
@@ -235,19 +263,6 @@ public class FossilController : MonoBehaviour
                 itemName.text = "Fossil";
                 itemIcon.sprite = trxSprite;
             }
-        }
-    }
-
-    private void OnEnable()
-    {
-        GetFossilbyPlayer();
-    }
-
-    private void OnDisable()
-    {
-        while (content.childCount > 0)
-        {
-            DestroyImmediate(content.GetChild(0).gameObject);
         }
     }
 

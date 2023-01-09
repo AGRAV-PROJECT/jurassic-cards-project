@@ -194,6 +194,26 @@ MonoBehaviour:
     m_Localized: "Submeter Localiza\xE7\xE3o Falsa"
     m_Metadata:
       m_Items: []
+  - m_Id: 2525254245285888
+    m_Localized: 'Encontrado em:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2525388655951872
+    m_Localized: "Informa\xE7\xE3o sobre o f\xF3ssil:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2526362829193216
+    m_Localized: "F\xF3ssil Encontrado!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2526448116170752
+    m_Localized: "Encontraste um f\xF3ssil!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2526552906661888
+    m_Localized: Desenterrar
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
