@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class SeniorModeTextScript : MonoBehaviour
 {
-    string API_URI = "https://jurassic-cards.herokuapp.com/";
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +19,14 @@ public class SeniorModeTextScript : MonoBehaviour
             }
 
             Canvas.ForceUpdateCanvases();
+        }
+        if (PlayerPrefs.GetInt("colorblindMode", 0) == 1)
+        {
+            FindObjectOfType<Colorblind>().Type = 3;
+        }
+        else
+        {
+            FindObjectOfType<Colorblind>().Type = 0;
         }
     }
 }

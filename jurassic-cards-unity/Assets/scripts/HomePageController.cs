@@ -16,6 +16,7 @@ public class HomePageController : MonoBehaviour
     public GameObject scanCardMenu;
     public GameObject settingsMenu;
     public GameObject seniorModeMenu;
+    public GameObject colorblindModeMenu;
     public GameObject fossilInfoPanel;
 
     public bool CheckIfMenuOpen()
@@ -92,6 +93,12 @@ public class HomePageController : MonoBehaviour
             OpenBaseMenu(settingsMenu);
             OpenMenuWithoutHiding(seniorModeMenu);
         }
+        if (PlayerPrefs.GetInt("justChangedColorblindMode", 0) == 1)
+        {
+            PlayerPrefs.SetInt("justChangedColorblindMode", 0);
+            OpenBaseMenu(settingsMenu);
+            OpenMenuWithoutHiding(colorblindModeMenu);
+        }
     }
 
     public void ChangeLanguage(int id)
@@ -116,6 +123,21 @@ public class HomePageController : MonoBehaviour
             PlayerPrefs.SetInt("seniorMode", 0);
         }
         PlayerPrefs.SetInt("justChangedSeniorMode", 1);
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
+
+    public void SetColorblindMode(int value)
+    {
+        if (PlayerPrefs.GetInt("colorblindMode", 0) == 0 && value == 1)
+        {
+            PlayerPrefs.SetInt("colorblindMode", 1);
+        }
+        else if (PlayerPrefs.GetInt("colorblindMode", 0) == 1 && value == 0)
+        {
+            PlayerPrefs.SetInt("colorblindMode", 0);
+        }
+        PlayerPrefs.SetInt("justChangedColorblindMode", 1);
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }
