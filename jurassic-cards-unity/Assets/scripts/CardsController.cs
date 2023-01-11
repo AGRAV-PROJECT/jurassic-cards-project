@@ -35,6 +35,14 @@ public class CardsController : MonoBehaviour
         }
     }
 
+    void OnDisable()
+    {
+        while(rtTransform.childCount > 0)
+        {
+            DestroyImmediate(rtTransform.GetChild(0).gameObject);
+        }
+    }
+
     // Card
     public class Card
     {
@@ -137,6 +145,10 @@ public class CardsController : MonoBehaviour
 
                 itemName.text = "Plesiosauro";
                 itemIcon.sprite = plesioSprite;
+
+                var objectButton = obj.GetComponent<Button>();
+                //objectButton.onClick.AddListener(CheckDescription);
+                objectButton.onClick.AddListener(delegate{CheckDescription(item.cardID);});
             }
             else if(item.image.Contains("Triceratops"))
             {
@@ -150,12 +162,20 @@ public class CardsController : MonoBehaviour
 
                 itemName.text = "T-Rex";
                 itemIcon.sprite = trxSprite;
+                var objectButton = obj.GetComponent<Button>();
+                objectButton.onClick.AddListener(delegate{CheckDescription(item.cardID);});
             }
             else if(item.image.Contains("Spinosauros"))
             {
         
             }
         }
+    }
+
+    // OnClick card button
+    public void CheckDescription(int cardID)
+    {
+        Debug.Log("TESTINGGGGGGGGGGGGGGGGGGGGGGG " + cardID.ToString());
     }
 
     // Clear scrollview
