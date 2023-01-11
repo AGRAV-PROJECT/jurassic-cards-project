@@ -18,6 +18,9 @@ public class HomePageController : MonoBehaviour
     public GameObject seniorModeMenu;
     public GameObject colorblindModeMenu;
     public GameObject fossilInfoPanel;
+    public Text playerName;
+    public Text ranking;
+    public Text totalCards;
 
     public bool CheckIfMenuOpen()
     {
@@ -34,6 +37,134 @@ public class HomePageController : MonoBehaviour
         public string image;
         public string description;
         public string isPlanted;
+    }
+
+    // Update member info
+    public void UpdateMemberInfo()
+    {
+        StartCoroutine(AddMemberInfo());
+    }
+
+    // Coroutine for member info
+    IEnumerator AddMemberInfo()
+    {   
+        string requestResult = "";
+
+        // Get UserID
+        int userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
+        
+        // Web Request for ranking
+        string uri = /*API_URI*/"http://127.0.0.1:5000/" + "account/getCurrentUserRanking/" + userID.ToString();
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
+        {
+            // Request and wait for the desired page.
+            yield return webRequest.SendWebRequest();
+
+            // Get the current username that is being sent on the URI
+            string[] pages = uri.Split('/');
+            int page = pages.Length - 1;
+
+            // Check request result
+            switch (webRequest.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                    Debug.Log("ERROR");
+                    webRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.DataProcessingError:
+                    //Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                    webRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.ProtocolError:
+                    //Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                    webRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Debug.Log(webRequest.downloadHandler.text);
+                    requestResult = webRequest.downloadHandler.text;
+                    webRequest.Dispose();
+                    break;
+            }
+        }
+        // Update with ranking
+        ranking.text += requestResult.ToString();
+        
+        // Web Request for username
+        uri = /*API_URI*/"http://127.0.0.1:5000/" + "account/getCurrentUserName/" + userID.ToString();
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
+        {
+            // Request and wait for the desired page.
+            yield return webRequest.SendWebRequest();
+
+            // Get the current username that is being sent on the URI
+            string[] pages = uri.Split('/');
+            int page = pages.Length - 1;
+
+            // Check request result
+            switch (webRequest.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                    Debug.Log("ERROR");
+                    webRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.DataProcessingError:
+                    //Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                    webRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.ProtocolError:
+                    //Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                    webRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Debug.Log(webRequest.downloadHandler.text);
+                    requestResult = webRequest.downloadHandler.text;
+                    webRequest.Dispose();
+                    break;
+            }
+        }
+        // Update with ranking
+		string requestResultFinal = "";
+		for(int i=1; i<requestResult.Length - 1; i++)
+		{
+			requestResultFinal += requestResult[i];
+		}
+        playerName.text = requestResultFinal.ToString();
+
+        // Web Request for card count
+        uri = /*API_URI*/"http://127.0.0.1:5000/" + "account/getCardCount/" + userID.ToString();
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
+        {
+            // Request and wait for the desired page.
+            yield return webRequest.SendWebRequest();
+
+            // Get the current username that is being sent on the URI
+            string[] pages = uri.Split('/');
+            int page = pages.Length - 1;
+
+            // Check request result
+            switch (webRequest.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                    Debug.Log("ERROR");
+                    webRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.DataProcessingError:
+                    //Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                    webRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.ProtocolError:
+                    //Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                    webRequest.Dispose();
+                    break;
+                case UnityWebRequest.Result.Success:
+                    Debug.Log(webRequest.downloadHandler.text);
+                    requestResult = webRequest.downloadHandler.text;
+                    webRequest.Dispose();
+                    break;
+            }
+        }
+        // Update with card count
+        totalCards.text += requestResult.ToString();
     }
 
     //Go to Create Profile page
