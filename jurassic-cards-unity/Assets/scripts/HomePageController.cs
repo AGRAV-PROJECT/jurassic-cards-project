@@ -87,7 +87,7 @@ public class HomePageController : MonoBehaviour
             }
         }
         // Update with ranking
-        ranking.text += requestResult.ToString();
+        ranking.text = "Pontuação: " + requestResult.ToString();
         
         // Web Request for username
         uri = API_URI + "account/getCurrentUserName/" + userID.ToString();
@@ -177,7 +177,7 @@ public class HomePageController : MonoBehaviour
     {
         int userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
         // Create web request
-        var request = new UnityWebRequest(/*API_URI*/"http://127.0.0.1:5000/" + "/account/winBattle/" + userID, "POST");
+        var request = new UnityWebRequest(API_URI + "/account/winBattle/" + userID, "POST");
 
         // Make the request and check for its success
         yield return request.SendWebRequest();
