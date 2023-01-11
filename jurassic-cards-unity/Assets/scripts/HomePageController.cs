@@ -167,7 +167,33 @@ public class HomePageController : MonoBehaviour
         totalCards.text += requestResult.ToString();
     }
 
-    //Go to Create Profile page
+    // Win battle
+    public void WinBattle()
+    {
+        StartCoroutine(BattleWon());
+    }
+
+    IEnumerator BattleWon()
+    {
+        int userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
+        // Create web request
+        var request = new UnityWebRequest(/*API_URI*/"http://127.0.0.1:5000/" + "/account/winBattle/" + userID, "POST");
+
+        // Make the request and check for its success
+        yield return request.SendWebRequest();
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(request.error);
+            request.Dispose();
+        }
+        else
+        {
+            Debug.Log("Battle won!");
+            request.Dispose();
+        }
+    }
+
+    // Go to Create Profile page
     public void AddFossil()
     {
         StartCoroutine(AddFossilCoroutine());
