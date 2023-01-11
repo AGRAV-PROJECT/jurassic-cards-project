@@ -54,7 +54,7 @@ public class HomePageController : MonoBehaviour
         int userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
         
         // Web Request for ranking
-        string uri = /*API_URI*/"http://127.0.0.1:5000/" + "account/getCurrentUserRanking/" + userID.ToString();
+        string uri = API_URI + "account/getCurrentUserRanking/" + userID.ToString();
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
             // Request and wait for the desired page.
@@ -90,7 +90,7 @@ public class HomePageController : MonoBehaviour
         ranking.text += requestResult.ToString();
         
         // Web Request for username
-        uri = /*API_URI*/"http://127.0.0.1:5000/" + "account/getCurrentUserName/" + userID.ToString();
+        uri = API_URI + "account/getCurrentUserName/" + userID.ToString();
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
             // Request and wait for the desired page.
@@ -131,7 +131,7 @@ public class HomePageController : MonoBehaviour
         playerName.text = requestResultFinal.ToString();
 
         // Web Request for card count
-        uri = /*API_URI*/"http://127.0.0.1:5000/" + "account/getCardCount/" + userID.ToString();
+        uri = API_URI + "account/getCardCount/" + userID.ToString();
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
             // Request and wait for the desired page.
