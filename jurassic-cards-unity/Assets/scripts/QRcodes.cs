@@ -300,11 +300,12 @@ public class QRcodes : MonoBehaviour
         //if qr code 14 is found
         if (text.text == "card14")
         {
-            StartCoroutine(AddCard(14, false));
-            wasScanned = true;
-            cardIdQRcode = 14;
-            CreateJSONforCard14();
-            Debug.Log("found qr code 14");
+            // DLC TODO REMOVE THIS
+            //StartCoroutine(AddCard(14, false));
+            //wasScanned = true;
+            //cardIdQRcode = 14;
+            //CreateJSONforCard14();
+            //Debug.Log("found qr code 14");
         }
 
         if (text.text == "card15")
@@ -317,7 +318,8 @@ public class QRcodes : MonoBehaviour
         }
 
         if (text.text == "card16")
-        {
+        {   
+            // DLC TODO REMOVE THIS
             StartCoroutine(AddCard(16, true));
             wasScanned = true;
             cardIdQRcode = 16;
@@ -335,12 +337,13 @@ public class QRcodes : MonoBehaviour
         }
 
         if (text.text == "card18")
-        {
-            StartCoroutine(AddCard(18, false));
-            wasScanned = true;
-            cardIdQRcode = 18;
-            CreateJSONforCard18();
-            Debug.Log("found qr code 18");
+        {   
+            //// DLC TODO REMOVE THIS
+            //StartCoroutine(AddCard(18, false));
+            //wasScanned = true;
+            //cardIdQRcode = 18;
+            //CreateJSONforCard18();
+            //Debug.Log("found qr code 18");
         }
 
         //other qr codes...
