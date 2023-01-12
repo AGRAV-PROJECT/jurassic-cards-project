@@ -8,6 +8,7 @@ using System;
 
 public class CardsController : MonoBehaviour
 {
+    HomePageController homePageControl;
     string API_URI = "https://jurassic-cards.herokuapp.com/";
     GameObject cardsInventoryScroller;
     public Transform content;
@@ -31,6 +32,8 @@ public class CardsController : MonoBehaviour
     public Text healthText;
     public Text descriptionText;
     public Image cardImage;
+
+    int cardIdGlobalBamboozle = 0;
 
     // Update is called once per frame
     void Update()
@@ -185,7 +188,7 @@ public class CardsController : MonoBehaviour
             }
             else if(item.image.Contains("Triceratops"))
             {
-                // Only available on DLC
+                // Only available on DLC TODO
             }
             else if(item.image.Contains("TRex"))
             {
@@ -201,14 +204,14 @@ public class CardsController : MonoBehaviour
             else if(item.image.Contains("Spinosauros"))
             {
                 // Only available on DLC
-                //GameObject obj = Instantiate(cardPrefab, content);
-                //var itemName = obj.transform.Find("CardText").GetComponent<Text>();
-                //var itemIcon = obj.transform.Find("CardImage").GetComponent<Image>();
-                //
-                //itemName.text = "Spinosauros";
-                //itemIcon.sprite = spinoSprite;
-                //var objectButton = obj.GetComponent<Button>();
-                //objectButton.onClick.AddListener(delegate{CheckDescription(item.cardID);});
+                GameObject obj = Instantiate(cardPrefab, content);
+                var itemName = obj.transform.Find("CardText").GetComponent<Text>();
+                var itemIcon = obj.transform.Find("CardImage").GetComponent<Image>();
+                
+                itemName.text = "Spinosauros";
+                itemIcon.sprite = spinoSprite;
+                var objectButton = obj.GetComponent<Button>();
+                objectButton.onClick.AddListener(delegate{CheckDescription(item.cardID);});
             }
         }
     }
@@ -216,6 +219,7 @@ public class CardsController : MonoBehaviour
     // OnClick card button
     public void CheckDescription(int cardID)
     {
+        cardIdGlobalBamboozle = cardID;
         StartCoroutine(CheckCardDescription(cardID));
     }
 
@@ -312,94 +316,6 @@ public class CardsController : MonoBehaviour
         GetCards();
     }
 
-
-
-
-
-
-
-
-
-
-
-    // Call Scan Card IEnumerator
-    //public void ScanCard(string json)
-    //{
-    //    Debug.Log("JSON QR CODE: \n" + json);
-    //
-    //    StartCoroutine(ScanCardCoroutine(json)); // erro - Null Exception
-    //}
-
-    // Scan Card
-    /* public IEnumerator ScanCardCoroutine(string json)
-    {
-
-        //Get UserID
-        int userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0);
-        Debug.Log("userID Lido Dentro Coroutine:" + userID);
-
-        yield return 0; //------------------ APAGAR PÓS TESTE
-
-        // Create card class
-        var card = new Card();
-        card.cardID = cardID;
-        card.cardDescription = cardDescription;
-        card.combatPoints = combatPoints;
-        card.cardLevel = cardLevel;
-        card.agility = agility;
-        card.attack = attack;
-        card.health = health;
-        card.ability1 = ability1;
-        card.ability2 = ability2;
-        card.ability3 = ability3;
-        card.ownDate = ownDate;
-        card.image = image;
-
-
-        
-                // Call Scan Card Endpoint
-                string uri = API_URL + "cards/scan/" + userID;
-                using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
-                {
-
-                    // Create JSON from class
-                    //string json = JsonUtility.ToJson(card);
-                    byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
-                    webRequest.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
-                    webRequest.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
-                    webRequest.SetRequestHeader("Content-Type", "application/json");
-
-                    // Request and wait for the desired page.
-                    yield return webRequest.SendWebRequest();
-
-                    // Get the current username that is being sent on the URI
-                    string[] pages = uri.Split('/');
-                    int page = pages.Length - 1;
-
-                    // Check request result
-                    switch (webRequest.result)
-                    {
-                        case UnityWebRequest.Result.ConnectionError:
-                            Debug.Log("ERROR");
-                            webRequest.Dispose();
-                            break;
-                        case UnityWebRequest.Result.DataProcessingError:
-                            //Debug.LogError(pages[page] + ": Error: " + webRequest.error);
-                            webRequest.Dispose();
-                            break;
-                        case UnityWebRequest.Result.ProtocolError:
-                            //Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
-                            webRequest.Dispose();
-                            break;
-                        case UnityWebRequest.Result.Success:
-                            Debug.Log(webRequest.downloadHandler.text);
-                            //Display success of the operation to the user
-                            webRequest.Dispose();
-                            break;
-                    }
-                } 
-    }*/
-
     // Call Evolve Card IEnumerator
     public void EvolveCard()
     {
@@ -409,46 +325,32 @@ public class CardsController : MonoBehaviour
     // Evolve Card
     IEnumerator EvolveCardCoroutine()
     {
-
-
         //Get CardID
-        int cardID = 3; // Get the id of the card chosen by the player
+        int cardID = cardIdGlobalBamboozle; // Get the id of the card chosen by the player
+        Debug.Log("Card to evolve " + cardID);
 
         // Call Evolve Card Endpoint /PUT
-        string uri = API_URI + "cards/evolve?cardID=" + cardID;
-        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
+        string uri = API_URI + "cards/evolve/" + cardID;
+        var request = new UnityWebRequest(uri, "PUT");
+        // Make the request and check for its success
+        yield return request.SendWebRequest();
+        if (request.result != UnityWebRequest.Result.Success)
         {
-            // Request and wait for the desired page.
-            yield return webRequest.SendWebRequest();
-
-            // Get the current username that is being sent on the URI
-            /* string[] pages = uri.Split('/');
-            int page = pages.Length - 1;
-            */
-
-            // Check request result
-            switch (webRequest.result)
-            {
-                case UnityWebRequest.Result.ConnectionError:
-                    Debug.Log("ERROR");
-                    webRequest.Dispose();
-                    break;
-                case UnityWebRequest.Result.DataProcessingError:
-                    //Debug.LogError(pages[page] + ": Error: " + webRequest.error);
-                    webRequest.Dispose();
-                    break;
-                case UnityWebRequest.Result.ProtocolError:
-                    //Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
-                    webRequest.Dispose();
-                    break;
-                case UnityWebRequest.Result.Success:
-                    Debug.Log(webRequest.downloadHandler.text);
-                    //Display success of the operation to the user
-                    webRequest.Dispose();
-                    break;
-            }
+            Debug.Log(request.error);
+            request.Dispose();
+        }
+        else
+        {
+            Debug.Log("Card successfully evolved!");
+            request.Dispose();
+            StartCoroutine(CheckCardDescription(cardID));
         }
     }
+
+
+
+
+
 
     // Call Get Cards Info IEnumerator
     public void GetCardInfo()
@@ -516,7 +418,6 @@ public class CardsController : MonoBehaviour
             }
         }
     }
-
 
     // Call Get Fav Cards IEnumerator
     public void GetPlayerFavCard()

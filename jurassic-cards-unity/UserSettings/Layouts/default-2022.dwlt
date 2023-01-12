@@ -436,23 +436,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: cec4ffff
-      m_LastClickedID: -15154
-      m_ExpandedIDs: ccfaffff6c620000ce6400002c680000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: bc3dffffc83dffff04f0ffff2efbffff7461000034670000ca67000050bc000046c40000a8c6000006ca000074cb0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: NameText
-        m_OriginalName: NameText
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 27852
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -720,9 +720,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.26325542, y: 3.2132797, z: -15.703347}
+    m_Target: {x: 1.1374048, y: 2.915466, z: -14.426348}
     speed: 2
-    m_Value: {x: 0.26325542, y: 3.2132797, z: -15.703347}
+    m_Value: {x: 1.1374048, y: 2.915466, z: -14.426348}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -772,9 +772,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 75.011955
+    m_Target: 63.325447
     speed: 2
-    m_Value: 75.011955
+    m_Value: 63.325447
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -904,22 +904,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/images
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/images
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\AGRAV\jurassic-cards-project\jurassic-cards-unity
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 22710000
-    m_LastClickedID: 28962
-    m_ExpandedIDs: 00000000
+    m_SelectedIDs: 84fe0000
+    m_LastClickedID: 65156
+    m_ExpandedIDs: 000000007afe0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -972,8 +972,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: a8c60000
+    m_LastClickedInstanceID: 50856
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000de0301005e6d000000000000
     m_RenameOverlay:
@@ -999,7 +999,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 61}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207

@@ -12,6 +12,7 @@ public class FossilController : MonoBehaviour
     public Transform content;
     public GameObject fossilPrefab;
     public Sprite plesioSprite;
+    public Sprite triceraSprite;
     public Sprite trxSprite;
     public GoogleMaps googleMaps;
     public GameObject fossilPlantPanel;
@@ -237,7 +238,14 @@ public class FossilController : MonoBehaviour
             }
             else if (item.image.Contains("Triceratops"))
             {
+                // Only available on DLC
+                GameObject obj = Instantiate(fossilPrefab, content);
+                var itemName = obj.transform.Find("CardText").GetComponent<Text>();
+                var itemIcon = obj.transform.Find("CardImage").GetComponent<Image>();
 
+                fossilPrefab.GetComponent<FossilPlantSelection>().fossilID = item.id;
+                itemName.text = "Triceratops";
+                itemIcon.sprite = triceraSprite;
             }
             else if (item.image.Contains("TRex"))
             {

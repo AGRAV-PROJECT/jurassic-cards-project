@@ -57,7 +57,16 @@ public class QRcodes : MonoBehaviour
         public string image;
     }
 
-
+    public class Fossil
+    {
+        public string name;
+        public string longitude;
+        public string latitude;
+        public string date;
+        public string image;
+        public string description;
+        public string isPlanted;
+    }
 
     void Start()
     {
@@ -85,9 +94,10 @@ public class QRcodes : MonoBehaviour
     }
 
     // Logic for adding card to DB
-    IEnumerator AddCard(int tempCardID)
+    IEnumerator AddCard(int tempCardID, bool isFossil)
     {
         var card = new Card();
+        var fossil = new Fossil();
         if(tempCardID == 13)
         {
             card.cardID = tempCardID;
@@ -138,19 +148,21 @@ public class QRcodes : MonoBehaviour
         }
         if(tempCardID == 16)
         {
-            card.cardID = 16;
-            card.cardName = "Triceratops";
-            card.cardDescription = "TriceratopsDescription";
-            card.combatPoints = 9;
-            card.cardLevel = 1;
-            card.agility = 5;
-            card.attack = 7;
-            card.health = 13;
-            card.ability1 = "Shield Bash";
-            card.ability2 = "Protection";
-            card.ability3 = "Charge";
-            card.ownedSince = "test";
-            card.image = "replaceWithTriceratopsImageFromUnityAssets";
+            //card.cardID = 16;
+            //card.cardName = "Triceratops";
+            //card.cardDescription = "TriceratopsDescription";
+            //card.combatPoints = 9;
+            //card.cardLevel = 1;
+            //card.agility = 5;
+            //card.attack = 7;
+            //card.health = 13;
+            //card.ability1 = "Shield Bash";
+            //card.ability2 = "Protection";
+            //card.ability3 = "Charge";
+            //card.ownedSince = "test";
+            //card.image = "replaceWithTriceratopsImageFromUnityAssets";
+            Debug.Log("Nothing to see here...");
+
         }
         if (tempCardID == 17)
         {
@@ -185,35 +197,80 @@ public class QRcodes : MonoBehaviour
             card.image = "replaceWithSpinosaurosImageFromUnityAssets";
         }
 
-        string uri = API_URI + "cards/scan/" + PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString();
-        
-        // Create JSON from class
-        string json = JsonUtility.ToJson(card);
-        // Create web request
-        var request = new UnityWebRequest(uri, "POST");
-
-        // Encode JSON to send in the request and change content type on request header accordingly
-        byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
-        request.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
-        request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
-        request.SetRequestHeader("Content-Type", "application/json");
-
-        // Make the request and check for its success
-        yield return request.SendWebRequest();
-        if (request.result != UnityWebRequest.Result.Success)
+        if(isFossil == true)
         {
-            if(request.downloadHandler.text.Contains("repeated"))
+            string userID = PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString();
+
+            // Create user class
+            fossil.name = "Triceratops";
+            fossil.longitude = "0";
+            fossil.latitude = "0";
+            fossil.date = "2022-01-13";
+            fossil.image = "Triceratops";
+            fossil.description = "Description";
+            fossil.isPlanted = "0";
+
+            // Create JSON from class
+            string json = JsonUtility.ToJson(fossil);
+
+            Debug.Log(json);
+
+            // Create web request
+            var request = new UnityWebRequest(API_URI + "fossil/add?userID=" + userID, "POST"); // TODO: Deploy API and change request URI accordingly
+
+            // Encode JSON to send in the request and change content type on request header accordingly
+            byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
+            request.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
+            request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            // Make the request and check for its success
+            yield return request.SendWebRequest();
+            if (request.result != UnityWebRequest.Result.Success)
             {
-                Debug.Log("Card has already been redeemed");
+                Debug.Log(request.error);
+                Debug.Log(request.downloadHandler.text);
+                request.Dispose();
             }
-            Debug.Log(request.error);
-            request.Dispose();
+            else
+            {
+                Debug.Log("Fossil added successfully!");
+                request.Dispose();
+            }
         }
         else
         {
-            Debug.Log("Card registered successfully!");
-            request.Dispose();
+            string uri = API_URI + "cards/scan/" + PlayerPrefs.GetInt("Current_Logged_UserID", 0).ToString();
+            
+            // Create JSON from class
+            string json = JsonUtility.ToJson(card);
+            // Create web request
+            var request = new UnityWebRequest(uri, "POST");
+
+            // Encode JSON to send in the request and change content type on request header accordingly
+            byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
+            request.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
+            request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            // Make the request and check for its success
+            yield return request.SendWebRequest();
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                if(request.downloadHandler.text.Contains("repeated"))
+                {
+                    Debug.Log("Card has already been redeemed");
+                }
+                Debug.Log(request.error);
+                request.Dispose();
+            }
+            else
+            {
+                Debug.Log("Card registered successfully!");
+                request.Dispose();
+            }
         }
+        
     }
 
     //if some qr code is found
@@ -222,7 +279,7 @@ public class QRcodes : MonoBehaviour
         //if qr code 13 is found
         if (text.text == "card13")
         {
-            StartCoroutine(AddCard(13));
+            StartCoroutine(AddCard(13, false));
             wasScanned = true;
             Debug.Log("found qr code 13");
             cardIdQRcode = 13;
@@ -233,7 +290,7 @@ public class QRcodes : MonoBehaviour
         //if qr code 14 is found
         if (text.text == "card14")
         {
-            StartCoroutine(AddCard(14));
+            StartCoroutine(AddCard(14, false));
             wasScanned = true;
             cardIdQRcode = 14;
             CreateJSONforCard14();
@@ -242,7 +299,7 @@ public class QRcodes : MonoBehaviour
 
         if (text.text == "card15")
         {
-            StartCoroutine(AddCard(15));
+            StartCoroutine(AddCard(15, false));
             wasScanned = true;
             cardIdQRcode = 15;
             CreateJSONforCard15();
@@ -251,7 +308,7 @@ public class QRcodes : MonoBehaviour
 
         if (text.text == "card16")
         {
-            StartCoroutine(AddCard(16));
+            StartCoroutine(AddCard(16, true));
             wasScanned = true;
             cardIdQRcode = 16;
             CreateJSONforCard16();
@@ -260,7 +317,7 @@ public class QRcodes : MonoBehaviour
 
         if (text.text == "card17")
         {
-            StartCoroutine(AddCard(17));
+            StartCoroutine(AddCard(17, false));
             wasScanned = true;
             cardIdQRcode = 17;
             CreateJSONforCard17();
@@ -269,7 +326,7 @@ public class QRcodes : MonoBehaviour
 
         if (text.text == "card18")
         {
-            StartCoroutine(AddCard(18));
+            StartCoroutine(AddCard(18, false));
             wasScanned = true;
             cardIdQRcode = 18;
             CreateJSONforCard18();

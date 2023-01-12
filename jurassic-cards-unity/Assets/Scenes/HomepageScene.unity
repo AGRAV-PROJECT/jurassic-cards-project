@@ -10103,7 +10103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &349784003
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34000,6 +34000,7 @@ MonoBehaviour:
   content: {fileID: 950179359}
   fossilPrefab: {fileID: 4447630623260955433, guid: b6a3d62a58e8f16468571a5aa1c9c230, type: 3}
   plesioSprite: {fileID: 21300000, guid: aaa7f5dc49f0c35419635e9db97a7937, type: 3}
+  triceraSprite: {fileID: 21300000, guid: 2e39263389d513d449935bd36a8b6a7f, type: 3}
   trxSprite: {fileID: 21300000, guid: aaa7f5dc49f0c35419635e9db97a7937, type: 3}
   googleMaps: {fileID: 514534524}
   fossilPlantPanel: {fileID: 588782315}
@@ -57937,7 +57938,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2053815107}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 84280598}
+        m_TargetAssemblyTypeName: CardsController, Assembly-CSharp
+        m_MethodName: EvolveCard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2053815107
 MonoBehaviour:
   m_ObjectHideFlags: 0

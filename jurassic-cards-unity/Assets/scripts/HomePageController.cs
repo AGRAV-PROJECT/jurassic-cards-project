@@ -164,7 +164,7 @@ public class HomePageController : MonoBehaviour
             }
         }
         // Update with card count
-        totalCards.text += requestResult.ToString();
+        totalCards.text = "Total Cards: " + requestResult.ToString();
     }
 
     // Win battle
@@ -189,11 +189,7 @@ public class HomePageController : MonoBehaviour
         else
         {
             Debug.Log("Battle won!");
-            string tempRanking = ranking.text;
-            string[] tempRanking2 = tempRanking.Split(':');
-            int currentRanking = int.Parse(tempRanking2[1]);
-            currentRanking += 227;
-            ranking.text = "Pontuação: " + currentRanking.ToString();
+            StartCoroutine(AddMemberInfo());
             request.Dispose();
         }
     }
