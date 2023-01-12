@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
+using UnityEngine.EventSystems;
 
 public class CardsController : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class CardsController : MonoBehaviour
     public RectTransform rtTransform;
     public GameObject cardDetailMenu;
     public GameObject cardListMenu;
+    Button clickedButton;
+
 
     // Texts for card details
     public Text cardNameText;
@@ -32,6 +35,10 @@ public class CardsController : MonoBehaviour
     public Text healthText;
     public Text descriptionText;
     public Image cardImage;
+    public Image avatarImage;
+
+    public RectTransform avatarContents;
+    public GameObject popUpMenu;
 
     int cardIdGlobalBamboozle = 0;
 
@@ -342,10 +349,24 @@ public class CardsController : MonoBehaviour
         else
         {
             Debug.Log("Card successfully evolved!");
+            popUpMenu.SetActive(true);
             request.Dispose();
             StartCoroutine(CheckCardDescription(cardID));
         }
     }
+
+    public void ClosePopUp()
+    {
+        popUpMenu.SetActive(false);
+    }
+
+    public void ChangeAvatar()
+    {   
+        string buttonName = EventSystem.current.currentSelectedGameObject.name;
+        clickedButton = avatarContents.transform.Find(buttonName).GetComponent<Button>();
+        avatarImage.sprite = clickedButton.image.sprite;
+    }
+
 
 
 

@@ -487,8 +487,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: I forgot my password
 --- !u!222 &34298754
@@ -1031,8 +1031,8 @@ MonoBehaviour:
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Register
 --- !u!222 &403768703
@@ -1669,8 +1669,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "Don\xB4t have an account?"
 --- !u!222 &936238045
@@ -1836,6 +1836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2134c6d62a0d5644cb397c22ea7709f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  montSerrat: {fileID: 12800000, guid: b8c621477cd603a488b02dcb2f38bcea, type: 3}
 --- !u!1 &1559093610
 GameObject:
   m_ObjectHideFlags: 0

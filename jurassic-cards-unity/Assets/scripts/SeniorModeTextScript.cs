@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class SeniorModeTextScript : MonoBehaviour
 {
+
+    public Font montSerrat;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,12 @@ public class SeniorModeTextScript : MonoBehaviour
         else
         {
             FindObjectOfType<Colorblind>().Type = 0;
+        }
+
+        Text[] textObjects2 = FindObjectsOfType<Text>(true);
+        foreach (Text text in textObjects2)
+        {
+            text.font = montSerrat;
         }
     }
 }

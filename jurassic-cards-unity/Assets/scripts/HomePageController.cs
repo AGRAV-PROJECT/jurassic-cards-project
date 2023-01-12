@@ -21,6 +21,7 @@ public class HomePageController : MonoBehaviour
     public Text playerName;
     public Text ranking;
     public Text totalCards;
+    public GameObject popUpVictory;
 
     public bool CheckIfMenuOpen()
     {
@@ -189,9 +190,15 @@ public class HomePageController : MonoBehaviour
         else
         {
             Debug.Log("Battle won!");
+            popUpVictory.SetActive(true);
             StartCoroutine(AddMemberInfo());
             request.Dispose();
         }
+    }
+
+    public void ClosePopUpWin()
+    {
+        popUpVictory.SetActive(false);
     }
 
     // Go to Create Profile page

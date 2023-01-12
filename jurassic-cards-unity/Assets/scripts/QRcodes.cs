@@ -20,6 +20,9 @@ public class QRcodes : MonoBehaviour
     bool wasScanned = false;
 
     //CardsController cardsController = (new GameObject("SomeObjName")).AddComponent<CardsController>();
+    
+    //Popup
+    public GameObject popUpMenu;
 
     public class QRcode
     {
@@ -266,11 +269,18 @@ public class QRcodes : MonoBehaviour
             }
             else
             {
+                popUpMenu.SetActive(true);
                 Debug.Log("Card registered successfully!");
                 request.Dispose();
             }
         }
         
+    }
+
+    // Close Popup
+    public void ClosePopUp()
+    {
+        popUpMenu.SetActive(false);
     }
 
     //if some qr code is found
